@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="orderConfirmation.css" />
+		<title>订单确认</title>
+		
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">订单确认</h1>
+		</header>
+		<div class="pa_t_23 ma_b_4">
+			<div class="bor_ra2 ub bg_fff pa_a_05">
+				<img src="imgs/bg.png" alt="" class="shopImg bor_ra2" />
+				<div class="ub-f1 ma_l_05">
+					<div class="color-333 font_32">芭缇菲面膜</div>
+					<div class="ma_t_03 color_orangered font_40">￥32</div>
+					<div class="font_32 text_d_linet">原价：￥168</div>
+					<div class="color_8f8f94 font_28">运费：￥12</div>
+					<div class="color_8f8f94 font_28 ma_t_05">温馨提示:请务必按照订单生成的金额进行转账。</div>
+				</div>
+			</div>
+			<div class="bor_ra2 bg_fff pa_lr_05 pa_tb_1 ma_t_05">
+				<div class="font_40">订单动态码：e68e53</div>
+				<div class="font-12 ma_t_05">再一次提醒:转账时请把务必把金额后缀的两小数点的金额填上。</div>
+				<div class="font-12 ma_t_05">同时 请在转账时填写备注的时候，把订单详情备注生成的编码填上。以供后台进行确定订单状态。</div>
+			</div>
+			<div class="ma_a_05">
+				<div class="ub ub-ac bg_fff bor_ra2 pa_a_05">
+					<div class="">请选择购买数量</div>
+					<div class="ub ub-ac ma_l_1 bor_a_999 bor_ra1">
+						<div class="pa_tb_05 pa_lr_1 bor_r_999 bg_f9f9f9 bor_ltb_ra1" onclick="minus()">-</div>
+						<div class="pa_tb_05 pa_lr_1" id="num">1</div>
+						<div class="pa_tb_05 pa_lr_1 bor_l_999 bg_f9f9f9 bor_rtb_ra1" onclick="add()">+</div>
+					</div>
+				</div>
+			</div>
+			<div class="bg_fff ma_a_05 pa_a_05 bor_ra2">
+				<div class="ub ub-ac">
+					<div class="font_28">
+						<span class="color_red">(必填)</span>
+						<span class=""> 收货地址：</span>
+					</div>
+					<input type="text" class="ub-f1 ma_l_05 m0 bor0" placeholder="请输入收货地址" />
+				</div>
+				<div class="ub ub-ac">
+					<div class="font_28">
+						<span class="color_red">(必填)</span>
+						<span class=""> &emsp;收货人：</span>
+					</div>
+					<input type="text" class="ub-f1 ma_l_05 m0 bor0" placeholder="请输入收货人姓名" />
+				</div>
+				<div class="ub ub-ac">
+					<div class="font_28">
+						<span class="color_red">(必填)</span>
+						<span class=""> 联系电话：</span>
+					</div>
+					<input type="text" class="ub-f1 ma_l_05 m0 bor0" placeholder="请输入联系电话" />
+				</div>
+			</div>
+			<div class="bg_fff ma_a_05 pa_tb_05 pa_lr_1 bor_ra2">
+				<div class="ub ub-ac ub-pj">
+					<div class="ub-f1 tx-c font_28">银行转账</div>
+					<div class="ub-f2 ub ub-pe">
+						<div class="mui-switch">
+						  <div class="mui-switch-handle"></div>
+						</div>
+					</div>
+				</div>
+				<div class="ub ub-ac ub-pj ma_t_15">
+					<div class="ub-f1 tx-c font_28">支付宝支付</div>
+					<div class="ub-f2 ub ub-pe">
+						<div class="mui-switch">
+						  <div class="mui-switch-handle"></div>
+						</div>
+					</div>
+				</div>
+				<div class="ub ub-ac ub-pj ma_t_15">
+					<div class="ub-f1 tx-c font_28">积分购买</div>
+					<div class="ub-f2 ub ub-pe">
+						<div class="mui-switch">
+						  <div class="mui-switch-handle"></div>
+						</div>
+					</div>
+				</div>
+				<div class="ub ub-ac ub-pj ma_t_15">
+					<div class="ub-f1 tx-c font_28">抵扣券购买</div>
+					<div class="ub-f2 ub ub-pe">
+						<div class="mui-switch">
+						  <div class="mui-switch-handle"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--第一个开关控制的显示内容-->
+			<div class="tx-c font_28 color_8f8f94">银行转账信息</div>
+			<div class="bg_fff ma_a_05 pa_a_1 bor_ra2">
+				<div class="ub ub-pj tx-c font_30">
+					<div class="ub-f1">银行卡号</div>
+					<div class="ub-f2">123123123123</div>
+				</div>
+				<div class="ub ub-pj tx-c font_30 ma_t_1">
+					<div class="ub-f1">开户银行</div>
+					<div class="ub-f2">123123123123</div>
+				</div>
+				<div class="ub ub-pj tx-c font_30 ma_t_1">
+					<div class="ub-f1">开户人姓名</div>
+					<div class="ub-f2">123123123123</div>
+				</div>
+			</div>
+			
+			<!--第二个开关控制的显示内容-->
+			<div class="tx-c font_28 color_8f8f94">支付宝转账信息</div>
+			<div class="bg_fff ma_a_05 pa_a_1 bor_ra2">
+				<div class="ub ub-pj tx-c font_30">
+					<div class="ub-f1">支付宝账号</div>
+					<div class="ub-f2">123123123123</div>
+				</div>
+				<div class="ub ub-pj tx-c font_30 ma_t_1">
+					<div class="ub-f1">支付宝名称</div>
+					<div class="ub-f2">XXX</div>
+				</div>
+				<img src="imgs/97eb8cd259894794.jpeg" alt="" class="w100" />
+			</div>
+			
+			<div class="ma_t_25 ub ub-pc">
+				<div class="color_fff bg_009688 pa_tb_05 pa_lr_15 font_26">上传转账凭证</div>
+			</div>
+			<div class="pa_lr_1 ma_t_4">
+				<div class="bor_ra2 pa_tb_05 color_fff bg_orange tx-c" onclick="remit()">确定打款</div>
+			</div>
+		</div>
+		
+		<div id="self-center">
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item mui-active" onclick="openWindow('../../main/index/index.html')">
+					<span class="mui-icon mui-icon-home"></span>
+					<span class="mui-tab-label">首页</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/data/data.html')">
+					<span class="mui-icon mui-icon-star"></span>
+					<span class="mui-tab-label">数据中心</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+					<span class="mui-icon mui-icon-pengyouquan"></span>
+					<span class="mui-tab-label">社圈</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/my/my.html')">
+					<span class="mui-icon mui-icon-contact"></span>
+					<span class="mui-tab-label">个人中心</span>
+				</a>
+			</nav>
+		</div>
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			
+		})
+		function minus(){
+			var num = $("#num").html();
+			if (num <= 0){
+				return;
+			}
+			num--;
+			$("#num").html(num);
+		}
+		function add(){
+			var num = $("#num").html();
+			num++;
+			$("#num").html(num);
+		}
+		function remit(){
+			alert('打款成功！')
+			setTimeout(function (){
+				openWindow('../../main/index/index.html')
+			},2000)
+		}
+	</script>
+
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>社圈</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="association.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/image.css" />
+		<link rel="stylesheet" href="../../views/SignIn/css/signIn.css">
+		<style>
+
+			.qcxj_head{
+				position:fixed;
+				background-color:#d41518;
+				height: 50px;
+				width: 100%;
+				z-index: 111111;
+			}
+
+			.qcxj_headBox{
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+
+			.qcxj_headBoxView{
+				position: absolute;
+				bottom: 10px;
+				left: 20px;
+				display: flex;
+				align-items: center;
+			}
+
+			.qcxj_headBoxViewImg{
+				width:20px;
+				height: 20px;
+			}
+
+			.qcxj_headBoxViewText{
+				color: #FFFFFF;
+				font-size: 18px;
+				margin-left: 20px;
+			}
+
+			.backImgClass{
+				position: relative;
+				height: 100%;
+				width: 100%;
+			}
+
+			.backImgClass>img{
+				position: absolute;
+				transform: translateY(-50%);
+				top:50%;
+				right:4px;
+				width: 25px;
+				height: 50px;
+			}
+
+			.qcxj_headSwitch{
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="association">
+			<!--<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="msg-box">
+						<div v-if="list.length>0" v-for="(item, i) in list" key="i">
+							<div class="msg-list">
+								<div class='head'>
+									<img src="imgs/logo.png"/>
+									<div>
+										<span v-text="item.userName"></span>
+										<div>
+											<span v-text="item.createDate"></span>
+										</div>
+									</div>
+								</div>
+								<div class="font-30" v-text="item.content"></div>
+								<div class='conImg' v-if="item.filePath&&item.filePath.length>0">
+									<img v-if="getSuffix(pic) == 'jpg' || getSuffix(pic) == 'jpeg' || getSuffix(pic) == 'png' || getSuffix(pic) == 'gif'" :src="fileUrl + pic" v-for="(pic, p) in item.filePath.split('|')" key="p" data-preview-src="" :data-preview-group="i" />
+									<video v-if="getSuffix(pic) == 'mp4' || getSuffix(pic) == 'flv' || getSuffix(pic) == 'avi' || getSuffix(pic) == 'MOV'" :src="fileUrl + pic" v-for="(pic, p) in item.filePath.split('|')" key="p"  controls="controls" style="display: block; width: 100%; height: 4rem;"></video>
+								</div>
+								<div class='tool'>
+									<div v-if="!isH5" id="share" class="share" :msgId="item.id" :msgIndex="i">
+										<span class='iconfont icon-fenxiang'></span>
+										<span v-text="item.share"></span>
+									</div>
+
+									<div class="comment" :msgId="item.id">
+										<span class='iconfont icon-liuyan'></span>
+										<span v-text="item.comment"></span>
+									</div>
+
+									<div class="praise" :msgId="item.id" :msgIndex="i">
+										<span class='iconfont icon-dianzan' :class="{'color-red': item.isParise == 'true'}"></span>
+										<span v-text="item.praise" :class="{'color-red': item.isParise == 'true'}"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<div class="qcxj_head">
+				<div class="qcxj_headBox">
+					<div class="qcxj_headBoxView">
+						<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">
+						<span class="qcxj_headBoxViewText">体验分享</span>
+					</div>
+				</div>
+			</div>
+			<div class="qcxj_headSwitch"></div>
+<!--			<div style="display: flex;margin-top: 30px;">-->
+<!--				<div style="width: 20%;text-align: center;">-->
+<!--					<img style="width: 50px;height: 50px;" src="../../views/SignIn/img/push.png" alt="">-->
+<!--				</div>-->
+<!--				<div style="margin-top: auto;margin-bottom: 10px;display: flex;align-items: center;width: 80%;">-->
+<!--					<textarea class="content" name="content" rows="6" maxlength='500' placeholder='我要分享...'></textarea>-->
+<!--					<button style="background-color: #ceac78;color: #FFFFFF;margin-left: auto;margin-right: 10px;">我的分享</button>-->
+<!--				</div>-->
+<!--			</div>-->
+
+			<div id="signIn">
+				<textarea style="height: 50px;padding: 5px;box-sizing: border-box;" class="content" name="content" rows="6" maxlength='500' placeholder='分享健康新鲜事...'></textarea>
+				<div class="imgs-area flex">
+					<div class="pic-box" v-if="imgs.length>0" v-for="(pic, p) in imgs" key="p">
+						<i class="iconfont icon-guanbi delete" :picIndex="p"></i>
+						<img :src="fileUrl + pic" alt="" data-preview-src="" data-preview-group="1" />
+					</div>
+					<div class="add-btn pic-box" v-show="imgs.length<8 && vedioSrc == ''" id="add-btn">
+						<img src="../../views/SignIn/img/push.png" />
+					</div>
+				</div>
+				<div class="btns">
+					<button type="button" class="mui-btn fabu">发表</button>
+				</div>
+				<div class="video-box" v-if="vedioSrc != ''">
+					<i class="iconfont icon-guanbi" onclick="deleteVedio()"></i>
+					<video :src="fileUrl + vedioSrc" controls="controls" poster="../../main/association/imgs/lookVideo.jpg"></video>
+				</div>
+			</div>
+
+			<img :src="fileUrl+picture.associationFilePath" alt="" style="width: 100%;">
+			<div class="msg-box">
+				<div v-if="list.length>0" v-for="(item, i) in list" key="i" style="padding: 10px;border-bottom: 1px solid rgb(222, 222, 221);">
+					<div class="msg-list">
+						<img v-if="item.filePath&&item.filePath.length>0" :src="item.filePath" />
+						<img v-else src="imgs/logo.png" alt="">
+						<div class="right_msg">
+							<div>
+								<span class="userName ">{{item.userName}}</span>
+								<div class='tool'>
+									<div v-if="!isH5" id="share" class="share" :msgId="item.id" :msgIndex="i">
+										<span class='iconfont icon-zhuanfa posr'>
+											<span v-text="item.share" class="posa"></span>
+										</span>
+									</div>
+
+									<div class="comment" :msgId="item.id">
+										<span class='iconfont icon-pinglun posr'>
+											<span v-text="item.comment" class="posa"></span>
+										</span>
+									</div>
+
+									<div class="praise" :msgId="item.id" :msgIndex="i">
+										<span class='iconfont icon-dianzan1 posr' :class="{'color-red': item.isParise == 'true'}">
+											<span v-text="item.praise" class="posa"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="content" v-text="item.content"></div>
+						</div>
+
+					</div>
+					<div class="commPraise">
+						<div class="praise" style="border-bottom: 1px solid rgb(222, 222, 221);">
+							<img v-for="(j_item,j) in item.commPraiseUserList" :src="fileUrl+j_item.imgPath" alt="">
+						</div>
+						<div class="i_comment msg-list" v-for="(i_item,i) in item.childCommunityList">
+							<img :src="fileUrl+i_item.user.imgPath" alt="">
+							<div class="right_msg">
+								<div>
+									<span class="userName" v-text="i_item.user.userName" style="font-size: 14px;"></span>
+									<div class='tool tool_time' v-text="i_item.createDate">
+									</div>
+								</div>
+								<div class="content" v-text="i_item.content"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--<a href="../index/index.html">测试</a>-->
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item" onclick="openWindow('../index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item agent-enter" onclick="openWindow('../data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item mui-active" onclick="openWindow('../association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">分享与体验</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../medicine/medicine.html')">
+					<div class="mui-icon iconfont icon-kefu1"></div>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.js"></script>
+		<script src="../../js/plugin/webUploader/webuploader.nolog.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/zoom.js"></script>
+		<script src="../../js/previewimage.js"></script>
+		<script src=" ../../js/downloadImage.js"></script>
+		<script src="../../js/plusShare.js"></script>
+		<script src="../../js/plugin/loading.js"></script>
+		<script src="js/association.js"></script>
+		<script src="../../views/SignIn/js/signIn.js"></script>
+	</body>
+
+</html>

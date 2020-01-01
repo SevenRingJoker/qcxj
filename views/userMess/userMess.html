@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="userMess.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui-pciker.css" />
+		<title>个人信息</title>
+		<style type="text/css">
+			.fanhui {
+				font-size: 1.25em !important;
+				color: white;
+				left: 0;
+				top: 0;
+			}
+			
+			.bor0 {
+				border: 0 !important;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+			
+			.map {
+				font-size: 1.25em !important;
+			}
+			strong{
+				font-size: 1.25rem;
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body style="background: white;">
+		<div class="pr h100" id="my-integral">
+			<!-- <div class="pf w100 z999 bg_333">
+				<div class="ub ub-pc pa_a_05 color_white ">
+					<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+					<div class="">个人信息</div>
+				</div>
+			</div> -->
+			<div class="goBack" onclick="goback()">
+				<span class="iconfont icon-fanhui1"></span>
+			</div>
+			<div class="">
+				<div class="pa_lr_05 ma_a_05 bg_fff bor_ra2 color-111">
+					<form action="" method="post">
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l"><strong>* </strong>账号名称</div>
+							<input class="ub-f2 bor0" type="text" v-model="form.userName" placeholder="请输入账号名称" />
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l"><strong>* </strong>登陆密码</div>
+							<input class="ub-f2 bor0" type="password" v-model="form.passWord" placeholder="请输入登陆密码" />
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l"><strong>* </strong>交易密码</div>
+							<input class="ub-f2 bor0" v-model="form.dealPassWord" type="password" value="" placeholder="请输入交易密码" />
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l"><strong>* </strong>姓名</div>
+							<input class="ub-f2 bor0" v-model="form.name" type="text" value="" placeholder="请输入姓名" />
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l"><strong>* </strong>区域</div>
+							<input class="ub-f2 bor0" type="text" id="city" v-model="cityDetail" readonly="readonly" placeholder="请选择区域" />
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l"><strong>* </strong>地址</div>
+							<input class="ub-f2 bor0" type="text" v-model="form.address" placeholder="请输入或定位获取详细地址" />
+							<i id="getAddress" class="iconfont icon-map map"></i>
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l"><strong>* </strong>联系电话</div>
+							<input class="ub-f2 bor0" type="number" v-model="form.phone" placeholder="请输入联系电话" />
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l">银行卡号</div>
+							<input class="ub-f2 bor0" v-model="form.bankCarNum" type="number" placeholder="请输入银行卡号" />
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l">开户行</div>
+							<input class="ub-f2 bor0" v-model="form.bankName" type="text" placeholder="请输入开户行" />
+						</div>
+						<!--<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l">支付宝账号</div>
+							<input class="ub-f2 bor0" v-model="form.aliPayNum" type="text" placeholder="请输入支付宝账号" />
+						</div>
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l">支付宝名称</div>
+							<input class="ub-f2 bor0" v-model="form.aliPayName" type="text" placeholder="请输入支付宝名称" />
+						</div>-->
+						<div class="ub ub-ac bor_b_ccc pa_tb_05">
+							<div class="font_28 ub-f1 pa_l_1 tx-l">推荐人</div>
+							<input id="leadNumber" class="ub-f2 bor0" v-model="form.leadNumber" type="number" placeholder="请输入推荐人" />
+						</div>
+						<div class="ub ub-ac pa_tb_05 bor_b_ccc input-code">
+							<div class="font_28 ub-f1 pa_l_1 tx-l"><strong>* </strong>验证码</div>
+							<input class="ub-f2 bor0" type="number" v-model="phoneCode" placeholder="请输入验证码" />
+							<button class="font_28 color_fff pa_tb_05 pa_lr_1 bor_ra1" style="background:  rgb(206,172,120);" type="button">{{sec}}</button>
+							<!--<div class="bg_4cd964 font_28 color_fff pa_tb_05 pa_lr_1 bor_ra1" id="getAuthCode">获取验证码</div>-->
+						</div>
+						<input type="hidden" class="ub-f2 bor0" v-model="form.lng" />
+						<input type="hidden" class="ub-f2 bor0" v-model="form.lat" />
+
+					</form>
+
+				</div>
+				<div class="ma_t_2 ma_b_3 pa_lr_1 commit-btn">
+					<div class="color-fff pa_tb_05 tx-c bor_ra2" style="background: rgb(218,37,29);" id="sub">提交</div>
+				</div>
+			</div>
+		</div>
+		<div style="height: 50px;"></div>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+				<span class="mui-icon iconfont icon-huodong"></span>
+				<span class="mui-tab-label">活动</span>
+			</a>
+			<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+				<span class="mui-icon iconfont icon-tuandui1"></span>
+				<span class="mui-tab-label">团队</span>
+			</a>
+			<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+				<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+				<span class="mui-tab-label">体验与分享</span>
+			</a>
+			<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+				<span class="mui-icon iconfont icon-kefu1"></span>
+				<span class="mui-tab-label">客服</span>
+			</a>
+			<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		
+		
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript"></script>
+	<script src="../../js/plugin/vue.min.js"></script>
+	<script src="../../js/city.data-3.js"></script>
+	<script src="../../js/mui.picker.min.js"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5QEcaoZOqMSYxyjGTWch3z9T68EFVAyV"></script>
+	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+	<script src="../../js/transformation.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/newAddress.js"></script>
+	<script src="js/userMess.js"></script>
+
+</html>

@@ -1,0 +1,33 @@
+#notice-detail {
+  overflow: hidden;
+}
+#notice-detail .notice {
+  padding: 0 0.2rem;
+}
+#notice-detail .notice .title {
+  padding: 0.3rem 0;
+  text-align: center;
+  font-size: 0.32rem;
+  color: #53b03e;
+  font-weight: bold;
+  border-bottom: 1px solid #F2F2F2;
+}
+#notice-detail .notice .date {
+  margin: 0.2rem 0;
+  color: #999;
+  text-align: right;
+}
+#notice-detail .notice .content {
+  text-indent: 2em;
+}
+#notice-detail .notice .content p {
+  padding-bottom: 0 !important;
+}
+#notice-detail video,
+#notice-detail img,
+#notice-detail iframe {
+  display: block;
+  border: none;
+  margin: 0 auto;
+  width: 100% !important;
+}

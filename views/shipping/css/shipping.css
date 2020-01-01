@@ -1,0 +1,74 @@
+#shipping {
+  padding-bottom: 1rem;
+}
+#shipping .title {
+  padding: 0.2rem;
+  font-size: 0.36rem;
+  font-weight: bold;
+}
+#shipping .address {
+  font-size: 0.32rem;
+  padding: 0.3rem 0.3rem 0.2rem;
+  margin: 5px 10px;
+  border-radius: 10px;
+  border-bottom: 2px solid #ededed;
+  color: #72706f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#shipping .address .main {
+  width: 100%;
+}
+#shipping .address .default {
+  display: inline-block;
+  padding: 0.1rem 0.3rem;
+  background: #ff1493;
+  color: #fff;
+  font-size: 0.22rem;
+  border-radius: 0.1rem;
+}
+#shipping .address .man-info span {
+  margin-right: 0.2rem;
+}
+#shipping .address .address-detail {
+  padding: 0.1rem 0;
+}
+#shipping .address span {
+  color: #72706f;
+}
+#shipping .address .icon-dizhi {
+  font-size: 35px;
+  margin-right: 10px;
+}
+#shipping .address .edit {
+  flex-shrink: 0;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 2px solid #EEEEEE;
+  line-height: 45px;
+}
+#shipping .bottom-btn {
+  position: fixed;
+  width: 100%;
+  bottom: 55px;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.32rem;
+  color: #aaa9a9;
+  text-align: center;
+}
+#shipping .bottom-btn i {
+  font-size: 0.4rem;
+  margin-right: 5px;
+}
+.active {
+  background: -webkit-linear-gradient(left, #feefdb, #fffbf8);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #feefdb, #fffbf8);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #feefdb, #fffbf8);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #feefdb, #fffbf8);
+  /* 标准的语法 */
+}

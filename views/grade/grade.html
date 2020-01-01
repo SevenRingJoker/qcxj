@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="grade.css" />
+		<title>我的等级</title>
+		<style type="text/css">
+			.fanhui {
+				font-size: 1.25em !important;
+				color: white;
+				left: 0;
+				top: 0;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="pr h100">
+			<div class="pf w100 z999 bg_333">
+				<div class="ub ub-pc pa_a_05 color_white ">
+					<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+					<div class="">我的等级</div>
+				</div>
+			</div>
+			<div class="pa_t_23">
+				<div class="pa_t_05 pa_lr_1">
+					<div class="bg_19aa8d bor_ra2 pa_tb_2 tx-c color_fff">
+						<!--<div class="font_48 font_w">品牌创始人</div>-->
+						<div class="font_28 ma_b_1">当前等级</div>
+						<h1 class="member-name">品牌创始人</h1>
+					</div>
+					<div class="pa_tb_05 font_30">会员说明：</div>
+					<textarea class="tx-c color_8f8f94 font_28 discript" readonly="readonly" style="border: none;padding: .2rem;">暂无描述! </textarea>
+				</div>
+			</div>
+		</div>
+			
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script src="../../js/textarea-sjx.js"></script>
+	<script type="text/javascript">
+		var getMember = baseUrl + 'member/get';
+		
+		ajaxPost(getMember, {
+			id: getQueryString('memberId')
+		}, function(res) {
+			$('.member-name').text(res.member.name);
+			$(".discript").text(res.member.content || '暂无描述');
+			$.each($("textarea"), function (i, n) {
+		        autoTextarea($(n)[0],10);
+		    });
+		}, function() {
+			ajaxError();
+		})
+	</script>
+
+</html>

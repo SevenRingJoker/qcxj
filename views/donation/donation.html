@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" href="donation.css">
+	</head>
+	<body style="background: white;">
+	<!-- 	<header class="mui-bar">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title">积分转赠</h1>
+		</header> -->
+		<div class="goBack" onclick="goback()">
+			<span class="iconfont icon-fanhui1"></span>
+		</div>
+		<div id="donation">
+			<div class="myIntegral">
+				<p class="integral color-fff">{{integral}}</p>
+				<p class="color-fff">我的积分</p>
+			</div>
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>对方号码</label>
+					<input id="phone" type="number" class="mui-input-clear" placeholder="请输入用户名">
+				</div>
+				<div class="mui-input-row">
+					<label>转赠积分</label>
+					<input id="integral" type="number" class="mui-input-clear" placeholder="请输入转赠积分" value="0">
+				</div>
+				<div class="mui-input-row">
+					<label>交易密码</label>
+					<input id="dealPassWord" type="password" class="mui-input-password" placeholder="请输入密码">
+				</div>
+				<div class="mui-button-row" style="padding: 30px;">
+					<button id="subBtn" type="button" class="mui-btn color-fff" style="padding: 6px 20px;background: rgb(218,37,29);">确认</button>
+				</div>
+			</form>
+		</div>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="donation.js"></script>
+
+	</body>
+</html>

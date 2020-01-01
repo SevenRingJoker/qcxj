@@ -1,0 +1,30 @@
+.head {
+  background: #00A2D4;
+  padding: 44px 10px 10px 10px;
+}
+.head img {
+  width: 140px;
+}
+.head h1 {
+  padding-right: 30px;
+  color: #FFF9EB;
+}
+.mui-bar {
+  background: rgba(0, 0, 0, 0);
+  position: fixed !important;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.foot {
+  z-index: 888;
+  bottom: 50px;
+}
+.foot button {
+  margin-left: 20px;
+}

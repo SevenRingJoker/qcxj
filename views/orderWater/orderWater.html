@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/image.css"/>
+		<link rel="stylesheet" type="text/css" href="orderWater.css" />
+		<title>详情</title>
+
+	</head>
+
+	<body>
+		<div class="pf w100 z999">
+			<div class="ub ub-pc pa_a_05 color_white ">
+				<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+				<div class="">详情</div>
+			</div>
+		</div>
+		<div id="order-water">
+			<div class="mui-slider" id="slider">
+				<div class="mui-slider-group">
+					<div class="mui-slider-item" v-for="(pic, i) in  bannerPics" :key="i">
+						<a href="#"><img :src="fileUrl + pic" data-preview-src="" data-preview-group="1" /></a>
+					</div>
+				</div>
+				<div class="banner-count"><span id="info">1</span>/{{bannerPics.length}}</div>
+		</div>
+		<div class="pa_a_05 bg_fff">
+			<div class="color_999 font-12">商品编码：1</div>
+			<div class="font_28 ma_t_05 color_darkorange">商品</div>
+			<div class="color_red">￥：168</div>
+			<div class="ub color_ccc font-12">
+				<div class="ub-f1">运费：0.00</div>
+				<div class="ub-f1">销售量：0 笔</div>
+			</div>
+			<textarea name="" id="" class="font_28 bor0 p0 ma_t_1 ma_b_0" readonly rows="2">富勒烯莹润修护精致面膜补水、 美白、保湿、滋养、修复（适用于任何肌肤）</textarea>
+		</div>
+		<div class="imgs-box">
+			<img style="display: block;width: 100%;" :src="fileUrl + pic" alt="" v-if="contentFilePaths.length>0" v-for="(pic, p) in contentFilePaths" :key="p" />
+		</div>
+		<a class="w100 db bg_coral pa_tb_05 tx-c color_fff font_26 ma_t_1" onclick="openWindow('../orderConfirmation/orderConfirmation.html')">立即结算</a>
+		</div>
+		<div id="self-center">
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item mui-active" onclick="openWindow('../../main/index/index.html')">
+					<span class="mui-icon mui-icon-home"></span>
+					<span class="mui-tab-label">首页</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/data/data.html')">
+					<span class="mui-icon mui-icon-star"></span>
+					<span class="mui-tab-label">数据中心</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+					<span class="mui-icon mui-icon-pengyouquan"></span>
+					<span class="mui-tab-label">社圈</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/my/my.html')">
+					<span class="mui-icon mui-icon-contact"></span>
+					<span class="mui-tab-label">个人中心</span>
+				</a>
+			</nav>
+		</div>
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js"></script>
+	<script src="../../js/plugin/vue.min.js"></script>
+	<script src="../../js/zoom.js"></script>
+	<script src="../../js/previewimage.js"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script type="text/javascript" src="js/orderWater.js"></script>
+
+</html>

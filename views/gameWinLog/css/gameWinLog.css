@@ -1,0 +1,25 @@
+p {
+  margin: 0;
+  font-size: 13px;
+}
+.msg {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  background: #fff;
+  border-bottom: 5px solid #EEEEEE;
+  border-radius: 10px;
+}
+.msg img {
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+}
+.mui-scroll-wrapper {
+  top: 50px;
+}
+body {
+  background: #efeff4;
+}

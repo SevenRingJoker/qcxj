@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../css/loading.css">
+		<link rel="stylesheet" type="text/css" href="../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<div id="hotPtoduct">
+		<span class="iconfont icon-user icon" onclick="openWindow('../main/my/my.html?channel=hotProduct')"></span>
+		<span class="iconfont icon-dazhuanfa icon" @click="share()" style="top: 80px; color: #00B7EE;"></span>
+		<span class="iconfont icon-update icon" @click="joinVip()" style="top: 150px; color: goldenrod;"></span>
+		<div class="image" v-for="(image,i) in hotImage">
+			<img v-if="suffix[i] == 'png' || suffix[i] == 'jpg' || suffix[i] == 'jpge'" :src="fileUrl+image" />
+			<video v-if="suffix[i] == 'mp4' || suffix[i] == 'flv' || suffix[i] == 'avi' || suffix[i] == 'MOV'" :poster="fileUrl+videoPoster[i]"
+			 :src="fileUrl + image" controls="controls" webkit-playsinline="true" x-webkit-airplay="true" preload="auto"
+			 playsinline="true" x5-video-player-type="h5" x5-video-orientation="h5" x5-video-player-fullscreen="true"></video>
+		</div>
+		<div style="height: 42px;"></div>
+		<div class="foot buy-button">立即购买</div>
+		<div id="popover" class="mui-popover" style="background-color: #fff;">
+			<!--选择规格数量-->
+			<div class="show-pic flex">
+				<img :src="imgPath + product.homeFilePath" alt="" />
+				<div class="price">
+					<!--<span>￥{{subPrice}}</span>-->
+					<span>￥ {{subPrice}}</span>
+					<div class="des">兑换券： {{subConversion}}</span>
+						<div class="des">库存：{{subInventorytext}}</div>
+					</div>
+				</div>
+				<div class="close"><a href="#popover" class="iconfont icon-guanbi"></a></div>
+				<div class="category-title"></div>
+				<div class="mui-scroll-wrapper" style="height: 80%;margin-top: 20%;">
+					<div class="mui-scroll">
+						<div class="classes">
+							<div class="classes-title">规格</div>
+							<ul style="padding-left: .1rem;">
+								<li class="sub-item" :class="{'active': i==0}" v-for="(item, i) in subTitle" :key="i" :sort="i">{{item}}</li>
+							</ul>
+						</div>
+						<div class="classes" v-for="(reclassifyTitle,i) in reclassifyTitleArrays" v-if="reclassifyTitle!='' && i>=reclassifyIndexStrat && i<reclassifyIndexEnd ">
+							<div class="classes-title reclassifyTitle">{{reclassifyTitle}}</div>
+							<ul style="padding-left: .1rem;">
+								<li class="sub-item reclassifyContent" :class="[{'active': j==0},'reclassify'+i+j]" v-for="(j_item, j) in reclassifyContentArrays[i]"
+								 @click="reclassifyCheck(i,j)">{{j_item}}</li>
+							</ul>
+						</div>
+						<div class="classes flex ai jsb" style="margin-top: .2rem;">
+							<div class="classes-title" style="margin: 0;">数量</div>
+							<div>
+								<div class="mui-numbox mui-pull-right" data-numbox-min="1" style="border: none;">
+									<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+									<input class="mui-input-numbox" type="number" value="1" />
+									<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+								</div>
+							</div>
+						</div>
+						<div style="height: 100px;"></div>
+					</div>
+				</div>
+
+				<div class="exchange-btn flex jsb">
+					<div class="buy-btn">立即购买</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="sharePopover" class="mui-popover mui-popover-action mui-popover-bottom">
+			<div class="share">
+				<a href="#sharePopover" class="iconfont icon-guanbi"></a>
+				<div style="text-align: center;">
+					<img :src="fileUrl+shareImage" alt="" />
+					<p style="font-size: 16px;">长按 保存土图片 或 直接分享</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<body>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/plugin/jquery2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common/commonFn.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/plugin/loading.js"></script>
+		<script src="../js/plugin/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>幸运大转盘</title>
+	<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+	<script>
+		_resize();
+		window.addEventListener('resize', _resize, false);
+
+		function _resize() {
+			var html = document.documentElement;
+			var windowWidth = html.clientWidth;
+			if (windowWidth > 640) {
+				windowWidth = 640;
+			}
+			html.style.fontSize = windowWidth / 6.4 + 'px';
+		}
+	</script>
+</head>
+
+<body>
+	<div class="game">
+		<header class="mui-bar mui-bar-nav" style="width: 100%;display: flex;justify-content: space-between;align-items: center;">
+			<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05" style="color: white;"></a>
+			<h1 class="mui-title">幸运游戏</h1>
+			<a onclick="winLog()" style="color: white;">中奖记录</a>
+		</header>
+		<div class="title">
+			<img src="images/game-title.png" alt="">
+		</div>
+		<div class="luckDrawCount">你有<span>10</span>次抽奖机会</div>
+		<div class="luckDrawCount tips" style="padding: 0 50px;color: #888888;font-size: 12px;">你当前可抽奖次数为0,如果想继续参加游戏</div>
+		<div class="luckDrawCount tips" style="padding: 0 50px;color: #888888;font-size: 12px;">可以使用10个抵扣券兑换一次玩游戏机会!</div>
+		<div class="wheel-box">
+			<div id="wheel">
+				<div class="des level1">
+					<div class="level"></div>
+					<div class="award"></div>
+				</div>
+				<div class="des level2">
+					<div class="level"></div>
+					<div class="award"></div>
+				</div>
+				<div class="des level3">
+					<div class="level"></div>
+					<div class="award"></div>
+				</div>
+				<div class="des level4">
+					<div class="level"></div>
+					<div class="award"></div>
+				</div>
+				<div class="des level5">
+					<div class="level"></div>
+					<div class="award"></div>
+				</div>
+				<div class="des level6">
+					<div class="level"></div>
+					<div class="award"></div>
+				</div>
+				<div class="des level7">
+					<div class="level"></div>
+					<div class="award"></div>
+				</div>
+				<div class="des level8">
+					<div class="level"></div>
+					<div class="award"></div>
+				</div>
+			</div>
+			<div id="arrow"></div>
+		</div>
+		<div class="record-box">
+			<!--<div>111111</div>-->
+			<div class="record-list"></div>
+		</div>
+	</div>
+
+</body>
+<script src="../../js/mui.min.js"></script>
+<script src="../../js/plugin/jquery2.1.min.js"></script>
+<script src="../../js/common/commonFn.js"></script>
+<script src="js/game.js"></script>
+
+</html>

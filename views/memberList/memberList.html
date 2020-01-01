@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>会员列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="css/memberList.css" />
+	</head>
+
+	<body>
+		<div id="member-List">
+			<div class="mui-bar">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">会员列表</h1>
+			</div>
+			<img class="headImage" src="img/memberList.jpg" />
+			<div class="product-list">
+				<div class="product-item" v-for="member in memberList" v-if="memberList.length>0" @click="href(member.id)">
+					<img :src="fileUrl + member.homeFilePath" alt="" />
+					<div class="name mui-ellipsis" v-text="member.name"></div>
+					<div class="color-red price">￥<span v-text="member.joinMoney"></span></div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/memberList.js"></script>
+	</body>
+
+</html>

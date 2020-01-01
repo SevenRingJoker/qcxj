@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>专业客服</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/medicine.css" />
+	</head>
+
+	<body>
+		<div id="medicine-page">
+			<!--主界面部分-->
+			<!--<div class="mall-header flex">
+				<div class="search-bar"><input class="search-input" v-model="search" type="text" placeholder="搜索关键字" /><span class="mui-icon mui-icon-search"></span></div>
+			</div>-->
+			<img id="headImg" class="banner-pic" src="imgs/banner.png" style="display: block;width:100%;" alt="" />
+			<div class="mui-inner-wrap" style="display: flex;">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper" style="flex: 3;padding-bottom: 1rem;">
+					<div class="mui-scroll">
+						<ul class="brand-list">
+							<li v-for="(kind, i) in mainDatas" :key="i" v-if="mainDatas.length>0" :class="{'active': kind.active}" :sort="i">
+								<div>{{kind.name}}</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper" style="flex: 5;padding-bottom: 1rem;background: #EDEDED;box-shadow: 0 0px 10px 0 rgba(0,0,0,.5);">
+					<div class="mui-scroll">
+						<div class="product-list">
+							<div v-if="subDatas.length>0" v-for="(v, i) in subDatas" class="product-item flex ai jsb" @click="serveUserDetails(v.id,v.user.userName)">
+								<div class="serveUser">
+									<img :src="fileUrl+v.headFilePath" style="flex-shrink: 0;"/>
+									<div>
+										<span>{{v.name}}</span>
+										<p class="mui-ellipsis-2">{{v.content}}</p>
+									</div>
+								</div>
+								<i class="iconfont icon-jiantouyou font-22"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<nav class="mui-bar mui-bar-tab" id="bottom-nav" style="z-index: 2000;">
+				<a class="mui-tab-item" onclick="openWindow('../index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item agent-enter" onclick="openWindow('../data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">体验与分享</span>
+				</a>
+				<a class="mui-tab-item mui-active" onclick="openWindow('../medicine/medicine.html')">
+					<div class="mui-icon iconfont icon-kefu1"></div>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+			<!--</div>-->
+		</div>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/plugin/loading.js"></script>
+		<script type="text/javascript" src="js/medicine.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="css/shipping.css" />
+	</head>
+
+	<body style="background: white;">
+		<div id="shipping">
+			<!-- <header class="mui-bar mui-bar-nav">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">我的收货地址</h1>
+			</header> -->
+			<div class="qcxj_head">
+				<div class="qcxj_headBox">
+					<div class="qcxj_headBoxView">
+						<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">
+						<span class="qcxj_headBoxViewText">收货地址</span>
+					</div>
+				</div>
+			</div>
+			<div class="qcxj_headSwitch"></div>
+			<img src="../order/imgs/guanggaowei.png" style="width: 100%;">
+			<div class="goBack" onclick="goback()">
+				<div class="backImgClass">
+					<img  src="../../img/back.png" alt="">
+				</div>
+				<!--				<span class="iconfont icon-fanhui1"></span>-->
+			</div>
+			<div class="address" v-if="datas.length>0" v-for="(addressObj, a) in datas" :key="a" :class="{'active':addressObj.active=='true'}">
+				<span class="iconfont icon-dizhi color-red" v-if="addressObj.active=='true'" ></span>
+				<span v-else style="width: 66px;"></span>
+				<div class="main">
+					<div class="man-info">
+						<span>{{addressObj.name}}</span <span>{{addressObj.phone}}</span>
+					</div>
+					<div class="address-detail">
+						<span>{{addressObj.province}}</span>
+						<span>{{addressObj.city}}</span>
+						<span>{{addressObj.region}}</span>
+						<span>{{addressObj.address}}</span>
+					</div>
+				</div>
+				<div class="edit" :addressId="addressObj.id">
+					<span>编辑</span>
+				</div>
+				<!-- 	<div class="btns flex jsb ai">
+					<div class="default" v-if="addressObj.active == 'true'">默认</div>
+					<div v-else></div>
+					<div>
+						<span class="user-btn" :address="JSON.stringify(addressObj)">使用</span>
+						<span class="edit" :addressId="addressObj.id">编辑</span>
+						<span class="delete" :addressId="addressObj.id">删除</span>
+					</div>
+				</div> -->
+			</div>
+			<div class="empty-tips" v-if="datas.length==0">暂无收货地址，请添加</div>
+			<div class="bottom-btn"><i class="iconfont icon-tianjia"></i>添加收货地址</div>
+			<nav class="mui-bar mui-bar-tab" style="background: #efeff4;">
+				<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">体验与分享</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+					<span class="mui-icon iconfont icon-kefu1"></span>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+			
+			
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/shipping.js"></script>
+	</body>
+
+</html>

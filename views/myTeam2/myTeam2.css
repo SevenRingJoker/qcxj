@@ -1,0 +1,47 @@
+.activate {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #007DDB;
+  text-align: center;
+  display: none;
+}
+.activate .vip_Code {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.activate .vip_Code input {
+  margin: 0;
+  border: 0;
+  width: 60%;
+  margin-left: 10px;
+}
+.activate button {
+  margin: 20px 10px;
+}
+.headMsg {
+  position: relative;
+}
+.headMsg .activateUser,
+.headMsg .chat {
+  position: absolute;
+  padding: 10px 15px;
+}
+.headMsg .activateUser {
+  left: 0;
+  top: 0;
+  background: #F08080;
+  border-radius: 0.5rem 0 0.5rem 0;
+}
+.headMsg .chat {
+  right: 0;
+  top: 0;
+  background: #FFA54F;
+  border-radius: 0 0.5rem 0 0.5rem;
+}
+p {
+  margin: 0;
+  color: #fff;
+  white-space: nowrap;
+}

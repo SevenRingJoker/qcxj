@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>投诉建议</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="css/complain.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/image.css" />
+	</head>
+
+	<body>
+		<div id="complain">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">投诉建议</h1>
+			</header>
+			<div class="mui-input-row">
+				<label>标题</label>
+				<input class="title-text" type="text" placeholder="标题" style="padding: 0;font-size: .28rem;height: 33px;">
+			</div>
+			<div class="category-title"></div>
+			<textarea class="content" name="content" rows="6" maxlength='200' placeholder='投诉建议...'></textarea>
+			<div class="imgs-area flex">
+				<div class="pic-box" v-if="imgs.length>0" v-for="(pic, p) in imgs" key="p">
+					<i class="iconfont icon-guanbi delete" :picIndex="p"></i>
+					<img :src="fileUrl + pic" alt="" data-preview-src="" data-preview-group="1" />
+				</div>
+				<div class="add-btn pic-box" v-if="imgs.length<9" id="add-btn">
+					<img src="../../img/addPicture.png" />
+				</div>
+			</div>
+			<div class="btn">提交</div>
+		</div>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/webUploader/webuploader.nolog.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/zoom.js"></script>
+		<script src="../../js/previewimage.js"></script>
+		<script src="js/complain.js"></script>
+	</body>
+
+</html>

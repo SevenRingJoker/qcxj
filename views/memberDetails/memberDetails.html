@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商品详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/image.css" />
+		<link rel="stylesheet" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/memberDetails.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">会员详情</h1>
+		</header>
+		<div id="memberDetails">
+			<div class="mui-slider" id="slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img :src="fileUrl+headFilePathArrays[headFilePathArrays.length-1]" /></a>
+					</div>
+					<div class="mui-slider-item" v-for="(pic, i) in headFilePathArrays" :key="i">
+						<a href="#"><img :src="fileUrl + pic" data-preview-src="" data-preview-group="1" /></a>
+					</div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img :src="fileUrl+headFilePathArrays[0]" /></a>
+					</div>
+				</div>
+				<div class="banner-count"><span id="info">1</span>/{{headFilePathArrays.length}}</div>
+			</div>
+			<div class="product-name">
+				<div class="color-red" style="padding-bottom: 0.1rem;">
+					<span>￥{{member.joinMoney}}</span>
+				</div>
+				<div>{{member.name}}</div>
+			</div>
+			<div class="product-intro">
+				<div class="intro-title">会员介绍</div>
+				<textarea class="intro-content" readonly="readonly" v-html="member.content"></textarea>
+			</div>
+			<div class="imgs">
+				<img :src="fileUrl + pic" alt="" v-for="(pic, p) in contentFilePathArrays" :key="p" />
+			</div>
+			<div class="foot" @click="buy(member.id)">
+				<button type="button" class="mui-btn mui-btn-danger">立即购买</button>
+			</div>
+
+			<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a @click="prompt()">VIP码激活</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a @click="onlinePay()">在线支付</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#picture"><b>取消</b></a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/zoom.js"></script>
+		<script src="../../js/previewimage.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/textarea-sjx.js"></script>
+		<script src="../../js/plugin/loading.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/memberDetails.js"></script>
+	</body>
+
+</html>

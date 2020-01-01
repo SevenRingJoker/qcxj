@@ -1,0 +1,8 @@
+#uploadTask input[type='file'] {
+  opacity: 0;
+}
+#uploadTask .uploader {
+  font-size: 0.3rem;
+  padding: 0.2rem;
+  border-bottom: 1px solid #EDEDED;
+}

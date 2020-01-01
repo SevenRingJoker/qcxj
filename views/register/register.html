@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/mui-pciker.css">
+		<link rel="stylesheet" href="../../css/iconFont/iconFont.css">
+		<link rel="stylesheet" href="../../css/common/g_common.css">
+		<link rel="stylesheet" href="css/register.css">
+	</head>
+
+	<body>
+		<!--<header class="mui-bar mui-bar-nav" style="background: rgba(0,0,0,0);box-shadow:none">
+			<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+		</header>-->
+		<div class="mui-content" id="vueApp">
+			<form>
+				<div class="register-titlt" style="display: flex;justify-content: space-between;">
+					<a class="mui-action-back mui-icon mui-icon-left-nav"></a>
+					<span>欢迎注册</span>
+					<span></span>
+				</div>
+				<div class="mui-input-row">
+					<input v-model="form.phone" type="text" class="mui-input-clear" placeholder="输入登陆手机号码">
+				</div>
+				<div class="mui-input-row">
+					<input v-model="form.userName" type="text" class="mui-input-clear" placeholder="请输入账户名">
+				</div>
+				<div class="input-code">
+					<div class="mui-input-row">
+						<input id="code" v-model="phoneCode" type="text" class="mui-input-clear" placeholder="验证码">
+					</div>
+					<button type="button">{{sec}}</button>
+				</div>
+				<div class="mui-input-row">
+					<input v-model="form.passWord" type="password" placeholder="请输入登录密码">
+				</div>
+				<div class="mui-input-row mui-password">
+					<input v-model="repeatPswd" type="password" class="repeat-password" placeholder="再次输入密码">
+				</div>
+				<div class="area-box">
+					<input id="city" v-model="cityDetail" type="text" class="mui-input-clear" readonly="readonly" placeholder="选择择省市区">
+				</div>
+				<div class="mui-input-row">
+					<input v-model="form.leadNumber" type="text" class="mui-input-clear" placeholder="邀请码">
+				</div>
+				<button id="sub" type="button" class="mui-btn mui-btn-primary mui-btn-block marT36">注册</button>
+			</form>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/mui.picker.min.js"></script>
+		<script src="../../js/city.data-3.js"></script>
+		<script src="js/register.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,15 @@
+.mui-slider-indicator .mui-indicator {
+  box-shadow: none;
+}
+.msgBox {
+  padding: 10px;
+  margin: 7px;
+  background: white;
+  border-radius: 10px;
+}
+p {
+  margin-bottom: 5px;
+}
+body {
+  background: #efeff4;
+}

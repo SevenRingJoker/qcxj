@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="css/search.css" />
+	</head>
+
+	<body>
+		<div id="search-page">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">搜索</h1>
+			</header>
+			<div class="search-bar flex" id="search-bar">
+				<i class="iconfont icon-search search-btn"></i>
+				<input type="text" v-model="search" class="mui-input-clear" placeholder="请输入搜索关键字">
+			</div>
+			<div class="tips-text">输入搜索关键字进行搜索</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="searchPage.js"></script>
+	</body>
+
+</html>

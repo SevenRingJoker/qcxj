@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="agency.css" />
+		<title>代理商协议</title>
+		<style type="text/css">
+			.fanhui {
+				font-size: 1.25em !important;
+				color: white;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="pf w100 z999 bg_333">
+			<div class="ub ub-pc pa_a_05 color_white ">
+				<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+				<div class="">代理商协议</div>
+			</div>
+		</div>
+		<div class="pa_t_23">
+			<img id="userAgreementsFile" src="" alt="" class="w100" />
+		</div>
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			ajaxPost(baseUrl + 'user/userAgreements', {
+				id: userInfo.id
+			}, function(res) {
+				console.log(res)
+				if(res.state == '200') {
+					$('#userAgreementsFile').attr({
+						'src': fileUrl + res.distinct
+					})
+				} else {
+					mui.toast(res.msg);
+				}
+			}, function(res) {
+				mui.toast('接口异常');
+			})
+		})
+	</script>
+
+</html>

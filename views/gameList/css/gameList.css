@@ -1,0 +1,16 @@
+img {
+	width: 100%;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.gameList {
+	padding: 10px;
+}
+
+body{
+	background:url('../image/bg.jpg');
+	background-size: 100%;
+}

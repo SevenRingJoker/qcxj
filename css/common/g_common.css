@@ -1,0 +1,361 @@
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: 0px;
+}
+
+button {
+	border: none !important;
+}
+
+html {
+	font-size: 13.33333333vw;
+}
+
+body {
+	font-size: 0.28rem;
+	background-color: #ffffff;
+	color: #333;
+}
+
+.mui-bar {
+	position: relative;
+	color: white;
+	background: #53b03e;
+}
+
+.mui-bar .mui-title {
+	color: white;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.font-10 {
+	font-size: 0.1rem;
+}
+
+.font-12 {
+	font-size: 0.12rem;
+}
+
+.font-14 {
+	font-size: 0.14rem;
+}
+
+.font-16 {
+	font-size: 0.16rem;
+}
+
+.font-18 {
+	font-size: 0.18rem;
+}
+
+.font-20 {
+	font-size: 0.2rem;
+}
+
+.font-22 {
+	font-size: 0.2rem;
+}
+
+.font-24 {
+	font-size: 0.24rem;
+}
+
+.font-26 {
+	font-size: 0.26rem;
+}
+
+.font-28 {
+	font-size: 0.28rem;
+}
+
+.font-30 {
+	font-size: 0.3rem;
+}
+
+.font-32 {
+	font-size: 0.32rem;
+}
+
+.font-b {
+	font-weight: bold;
+}
+
+.font-40 {
+	font-size: 0.4rem;
+}
+
+.color-000 {
+	color: #000;
+}
+
+.color-333 {
+	color: #333;
+}
+
+.color-666 {
+	color: #666;
+}
+
+.color-999 {
+	color: #999;
+}
+
+.color-fff {
+	color: #fff!important;
+}
+
+.color-blue {
+	color: #007aff;
+}
+
+.color-green {
+	color: #99CC00;
+}
+
+.color-red {
+	color: #DA251D !important;
+}
+
+.color-golden {
+	color: #CEAC78;
+}
+.color-170{
+	color: rgb(170,169,169);
+}
+
+
+.pd-20 {
+	padding: 0.2rem;
+}
+
+.border {
+	border: 1px solid #ddd;
+}
+
+.border-b {
+	border-bottom: 1px solid #ddd;
+}
+
+.border-t {
+	border-top: 1px solid #ddd;
+}
+
+.border-l {
+	border-left: 1px solid #ddd;
+}
+
+.border-r {
+	border-right: 1px solid #ddd;
+}
+
+.gap-20 {
+	height: 0.2rem;
+	background: #F2F2F2;
+}
+
+.flex {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;
+	display: flex;
+}
+
+.jc {
+	justify-content: center;
+}
+
+.ai {
+	align-items: center;
+}
+
+.jsb {
+	justify-content: space-between;
+}
+
+.btn {
+	padding: 0.1rem 0;
+	width: 40%;
+	margin: 0 auto;
+	font-size: 0.36rem;
+	text-align: center;
+	color: #fff;
+	background-color: #2AC845;
+	border-radius: 20px;
+}
+
+.html5plus .html5plus-hide {
+	display: none;
+}
+
+.category-title {
+	height: .1rem;
+	background-color: #ededed;
+}
+
+.empty-tips {
+	font-size: .32rem;
+	text-align: center;
+	padding: .2rem;
+}
+
+.mui-toast-container {
+	bottom: 50% !important;
+}
+
+.mui-toast-message {
+	background: rgba(0, 0, 0, .6);
+	color: #fff;
+	width: 180px;
+	padding: 10px;
+}
+
+.mui-bar {
+	box-shadow: none;
+}
+
+/********************/
+
+.phonePopup {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .3);
+	z-index: 999999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.phonePopup>div {
+	text-align: center;
+	border-radius: 20px;
+	width: 350px;
+	height: 350px;
+	background-size: 100%;
+	background-image: url('https://www.wujielp.com/man/uploadfile/manager/bb771a35344244e9.jpg');
+}
+
+.phonePopup h2 {
+	padding: 20px;
+	color: sandybrown;
+}
+
+.phonePopup>div>div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+	padding: 20px 10px;
+}
+
+.phonePopup p {
+	font-size: 13px;
+	white-space: nowrap;
+	padding: 0 10px;
+	width: 25%;
+}
+
+.phonePopup button {
+	width: 25%;
+	margin-left: 10px;
+}
+
+.phonePopup>div>div>input {
+	margin: 0;
+	width: 50%;
+	border: 0;
+	border-bottom: 1px solid #888;
+	background: rgba(0, 0, 0, 0);
+	font-size: 15px;
+	border-radius: 0;
+	padding: 0;
+}
+
+.closePhonePopup {
+	float: left;
+	margin: 10px;
+}
+
+.mui-title {
+	font-weight: bold;
+}
+
+.goBack {
+	position: fixed;
+	left: -57px;
+	top: 40%;
+	width: 90px;
+	height: 90px;
+	border-radius: 0 50% 50% 0;
+	background: rgba(0, 0, 0, .3);
+	color: white;
+	text-align: right;
+	line-height: 90px;
+	padding-right: 3px;
+	z-index: 9999;
+}
+
+.goBack>span {
+	font-size: 34px;
+}
+
+
+.qcxj_head{
+	position:fixed;
+	background-color:#d41518;
+	height: 50px;
+	width: 100%;
+	z-index: 111111;
+}
+
+.qcxj_headBox{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.qcxj_headBoxView{
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.qcxj_headBoxViewImg{
+	width:20px;
+	height: 20px;
+}
+
+.qcxj_headBoxViewText{
+	color: #FFFFFF;
+	font-size: 18px;
+	margin-left: 20px;
+}
+
+.backImgClass{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.backImgClass>img{
+	position: absolute;
+	transform: translateY(-50%);
+	top:50%;
+	right:4px;
+	width: 25px;
+	height: 50px;
+}
+
+.qcxj_headSwitch{
+	height: 50px;
+}

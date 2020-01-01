@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/order.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/loading.css" />
+	</head>
+
+	<body style="background: white;">
+		<div id="order">
+			<!-- 	<div class="mui-bar">
+				<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+				<span class="mui-title">确认订单</span>
+			</div> -->
+			<img src="imgs/guanggaowei.png" style="width: 100%;">
+			<div class="goBack" onclick="goback()">
+				<span class="iconfont icon-fanhui1"></span>
+			</div>
+			<div class="address">
+				<div v-if="address!=null">
+					<p class="addressName">
+						<span>{{address.name}}</span>
+						<span>{{address.phone}}</span>
+					</p>
+					<p class="mui-ellipsis-2">{{address.province+address.city+address.region+address.address}}</p>
+				</div>
+				<div v-else>
+					选择收货地址
+				</div>
+				<span id="moreAddress" class="mui-icon mui-icon-arrowright"></span>
+			</div>
+
+			<div class="product" v-if="getQueryString('type') != 'shoppingCar'">
+				<img :src="fileUrl+order.productFilePath" style="flex-shrink: 0;" />
+				<div class="productData">
+					<p class="title" style="color: rgb(114,112,111);">{{order.productTitle}}</p>
+					<p>规格：{{order.subProductTitle}}</p>
+					<p class="conversion" v-if='payStatus=="抵扣券"'><span style="color: rgb(114,112,111);">抵扣券：</span>{{order.conversion}}</p>
+					<p class="integral" v-if='payStatus=="积分"'><span style="color: rgb(114,112,111);">积分：</span>{{order.price}}</p>
+					<p class="price" v-if='payStatus=="在线支付"||payStatus==""'><span style="color: rgb(114,112,111);">单价：</span>￥{{order.price}}</p>
+					<p class="welfare" v-if='payStatus=="福包"'><span style="color: rgb(114,112,111);">福包：</span>{{order.welfare}}</p>
+					<div>
+						<div class="mui-numbox numboxProduct" data-numbox-step='1' data-numbox-min='-1' data-numbox-max='100'>
+							<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+							<input class="mui-numbox-input" type="number" readonly="" style="padding: 0 !important;" />
+							<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="product" v-for="(shopCar,i) in shopCars" v-if="getQueryString('type') == 'shoppingCar'">
+				<img :src="fileUrl+shopCar.filePath" />
+				<div class="productData">
+					<p class="title">{{shopCar.productTitle}}</p>
+					<p>规格：{{shopCar.productSubTitle}}</p>
+					<p v-if="receivingType == '自费物流'">运费：{{shopCar.receivingType}}</p>
+					<p class="conversion" v-if='payStatus=="抵扣券"'>抵扣券：{{shopCar.conversion}}</p>
+					<p class="integral" v-if='payStatus=="积分"'>积分：{{shopCar.price}}</p>
+					<p class="price" v-if='payStatus=="在线支付"||payStatus==""'>￥{{shopCar.price}}</p>
+					<p class="welfare" v-if='payStatus=="福包"'>福包：{{shopCar.welfare}}</p>
+					<div>
+						<div class="mui-numbox" :class='"numboxShopCare"+shopCar.id' data-numbox-step='1' data-numbox-min='1'
+						 data-numbox-max='100'>
+							<button class="mui-btn mui-numbox-btn-minus" @click="delCount(i,shopCar.id)" type="button">-</button>
+							<input class="mui-numbox-input" type="number" readonly="" />
+							<button class="mui-btn mui-numbox-btn-plus" @click='addCount(i,shopCar.id)' type="button">+</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<ul class="mui-table-view elseDate">
+				<li class="mui-table-view-cell serviceBranch">
+					<div>
+						<span>自提</span>
+						<div class="mui-switch changeServiceBranch" id="changeServiceBranch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</div>
+					<button id="selectServiceBranch" v-if='receivingType=="网点"' type="button" data-loading-text="附近网点生成中"
+					 data-loading-icon="mui-spinner mui-spinner-custom" class="selectServiceBranch mui-btn ">请选择附近网点</button>
+				</li>
+				<li class="mui-table-view-cell" v-if='receivingType=="自费物流" && getQueryString("type") != "shoppingCar"'><span>邮费</span><span>￥{{order.receivingMoney}}</span></li>
+				<li class="mui-table-view-cell" style="border-bottom: 1px solid rgb(222,222,221);">
+					<div class="channels">
+						<p>请选择以下一种交易方式</p>
+						<div>
+							<span>在线支付</span>
+							<div class="mui-switch" id='isOnlinePay'>
+								<div class="mui-switch-handle"></div>
+							</div>
+						</div>
+						<div>
+							<span>积分</span>
+							<div class="mui-switch" id='isIntegralPay'>
+								<div class="mui-switch-handle"></div>
+							</div>
+						</div>
+						<div>
+							<span>抵扣券</span>
+							<div class="mui-switch" id='isConversionPay'>
+								<div class="mui-switch-handle"></div>
+							</div>
+						</div>
+						<div style="display: none;">
+							<span>福包</span>
+							<div class="mui-switch" id='isJoinWelfarePay'>
+								<div class="mui-switch-handle"></div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<p style="padding: 10px;font-size: 12px;">温馨提示：抵扣券 或 积分支付时，若果商品不包邮的情况下，抵扣券或积分不能用户抵扣运费。</p>
+			<div style="height: 100px;"></div>
+			<div class="foot" style="bottom: 50px;">
+				<div>
+					<span>应支付金额:<span style="color: #da251d ;">￥{{decimal(totalMoney)}}</span></span>
+					<span v-if='payStatus=="积分"'>应支付积分: <span style="color: #da251d ;">￥{{decimal(totalIntegral)}}</span></span>
+					<span v-if='payStatus=="抵扣券"'>应支付抵扣券: <span style="color: #da251d ;">￥{{decimal(totalConversion)}}</span></span>
+					<span v-if='payStatus=="福包"'>应支付福包: <span style="color: #da251d ;">￥{{decimal(totalWelfare)}}</span></span>
+				</div>
+				<button id="payBtn" type="button" data-loading-text="订单生成中" data-loading-icon="mui-spinner mui-spinner-custom"
+				 class="payBtn mui-btn mui-btn-danger ">支付</button>
+			</div>
+
+			<nav class="mui-bar mui-bar-tab" style="background: #efeff4;">
+				<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">体验与分享</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+					<span class="mui-icon iconfont icon-kefu1"></span>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+
+
+			<div id="serviceBranchModel" class="mui-popover mui-popover-bottom mui-popover-action serviceBranchModel">
+				<div class="title">
+					<span></span>
+					<span>请点击网点</span>
+					<a class="mui-icon mui-icon-closeempty" href='#serviceBranchModel'></a>
+				</div>
+				<div class="content">
+					<div class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="serviceBranceMsg" v-for="(serviceBranch, i) in serviceBranchList" @click="clickServiceBranch(serviceBranch,i)">
+								<p>
+									<span><i class="iconfont icon-user"></i> {{serviceBranch.name}}</span>
+									<span><i class="iconfont icon-dianhuahaoma"></i> {{serviceBranch.userNumber}}</span>
+								</p>
+								<p>{{serviceBranch.province+serviceBranch.city+serviceBranch.county+serviceBranch.address}}</p>
+								<p v-if='serviceBranch.lng!=null&&serviceBranch.lat!=null'>{{distance(serviceBranch.lng,serviceBranch.lat)}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=5QEcaoZOqMSYxyjGTWch3z9T68EFVAyV"></script>
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+		<script src="../../js/transformation.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/plugin/loading.js"></script>
+		<script src="js/order.js"></script>
+	</body>
+
+</html>

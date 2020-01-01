@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="poster.css" />
+		<link rel="stylesheet" type="text/css" href="../../main/index/css/index.css"/>
+		<title>推广海报</title>
+		<style type="text/css">
+			
+			.fanhui {
+				font-size: 1.25em !important;
+				color: white;
+				left: 0;
+				top: 0;
+			}
+			.iconList img{
+				width: 2.9rem;
+				height: 2.9rem;
+			}
+			#slider img{
+				border-radius: 1.875rem;
+			}
+		</style>
+	</head>
+
+	<body style="background: white;">
+		<div class="pr h100" id="my-poster">
+			<!-- <div class="pf w100 z999 bg_333">
+				<div class="ub ub-pc pa_a_05 color_white ">
+					<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+					<div class="">推广海报</div>
+				</div>
+			</div> -->
+			<div class="">
+				<div class="pa_b_1">
+					<div id="slider" class="mui-slider">
+						<div class="mui-slider-group mui-slider-loop" v-if="list.length>0">
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a>
+									<img :src="fileUrl + list[list.length-1]">
+								</a>
+							</div>
+							<div class="mui-slider-item" v-for="(pic, i) in list" :key="i">
+								<a>
+									<img :src="fileUrl + list[i]">
+								</a>
+							</div>
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a>
+									<img :src="fileUrl + list[0]">
+								</a>
+							</div>
+						</div>
+						<!-- <div class="mui-slider-indicator" v-if="list.length>0">
+							<div class="mui-indicator" :class="{'mui-active': i==0}" v-for="(pic, i) in list" :key="i"></div>
+						</div> -->
+					</div>
+				</div>
+				<div class="bg_fff pa_a_1 share-box" style="display: none;">
+					<div class="tx-c pa_lr_1 font_24 color_8f8f94">温馨提示：按住海报保存图片，分享给需要注册的朋友，或者直接填写推荐人手机号码。</div>
+					<div class="tx-c font_24 color_8f8f94 ma_t_2">同时可分享</div>
+					<div class="ub ub-pc iconList">
+						<div class="ub-f1 ub ub-pc share">
+							<img src="img/pengyouquan.png" alt="" class="" />
+						</div>
+						<!--<div class="ub-f1 ub ub-pc">
+							<img src="img/weixin.png" alt="" class="" />
+						</div>
+						<div class="ub-f1 ub ub-pc">
+							<img src="img/QQ.png" alt="" class="" />
+						</div>
+						<div class="ub-f1 ub ub-pc">
+							<img src="img/QQkongjian.png" alt="" class="" />
+						</div>
+						<div class="ub-f1 ub ub-pc">
+							<img src="img/tengxunweibo.png" alt="" class="" />
+						</div>-->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">体验与分享</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+					<span class="mui-icon iconfont icon-kefu1"></span>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script src="../../js/plugin/vue.min.js"></script>
+	<script src="../../js/downloadImage.js"></script>
+	<script src="../../js/plusShare.js"></script>
+	<script src="js/poster.js"></script>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>客服</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="css/serveUserList.css" />
+		<style type="text/css">
+			body {
+				background: #efeff4;
+			}
+
+			.service-user-list {
+				background: #fff;
+			}
+
+			.navTo {
+				margin: 0;
+				padding: 10px;
+			}
+
+			.service-users {
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="serveUser-list">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">{{titleText}}</h1>
+			</header>
+			<p class="navTo" v-if="getQueryString('comeFrom') != 'my'">{{getQueryString('typeName')+" > "+getQueryString('subTypeName')}}</p>
+			<div class="list-box">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="service-user-list" style="border-radius:10px;margin: 10px;">
+							<div class="service-users flex ai" v-if="list.length>0" v-for="(item, i) in list.filter(function(v) { if(v.toUser){return v.user.id != v.toUser.id} else { return !v.toUser}})"
+							 key="i" :userId='item.toUser ? item.toUser.id : item.user.id' :imId="item.id" :userName="item.toUser ? item.toUser.userName : item.user.userName"
+							 :unread="item.unread">
+								<div class="serviceUser-header" v-if="getQueryString('comeFrom') == 'my'">
+									<img :src="userInfo.id==item.toUser.id?item.user.imgPath:item.toUser.imgPath" alt="" />
+								</div>
+								<div class="serviceUser-header" v-else>
+									<img :src="item.headFilePath!=null?fileUrl+item.headFilePath:'../../../association/imgs/logo.png'" alt="" />
+								</div>
+								<div class="serviceUser-info">
+									<div class="color-000 font-b" v-if="getQueryString('comeFrom') == 'my'">{{userInfo.id==item.toUser.id?item.user.userName:item.toUser.userName}}</div>
+									<div class="color-000 font-b" v-else>{{item.name}}</div>
+									<div :class="{'color-green': getQueryString('comeFrom')=='my' ? item.toUser.isOnLine == 'true' : item.isOnLine=='true'}">
+										<!--{{item.isOnLine=='true' || item.touser.isOnLine == 'true'? '在线' : '离线'}}-->
+										{{getQueryString('comeFrom')=='my' ? item.toUser.isOnLine == 'true' ? '在线' : '离线' : item.isOnLine=='true' ? '在线' : '离线'}}
+									</div>
+								</div>
+								<div class="unread-count" v-if="item.unread>0">
+									{{item.unread}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../../js/mui.min.js"></script>
+		<script src="../../../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../../../js/plugin/vue.min.js"></script>
+		<script src="../../../../js/mui.pullToRefresh.js"></script>
+		<script src="../../../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../../../js/common/commonFn.js"></script>
+		<script src="js/serveUserList.js"></script>
+	</body>
+
+</html>

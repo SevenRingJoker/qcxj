@@ -1,0 +1,105 @@
+#order-list .haeder-tab {
+  padding: 0 0.2rem;
+  background: #fff;
+  justify-content: space-around;
+  border-bottom: 1px solid #dededd;
+}
+#order-list .haeder-tab .status {
+  min-width: 1.8rem;
+  height: 0.9rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 0.32rem;
+  position: relative;
+}
+#order-list .haeder-tab .status.active {
+  color: #da251d;
+  border-bottom: 3px solid #da251d;
+}
+#order-list .haeder-tab .status > .statusCount {
+  background-color: #da251d;
+  color: white;
+  font-size: 0.22rem;
+  position: absolute;
+  width: 0.4rem;
+  text-align: center;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  top: 0.1rem;
+  border-radius: 0.2rem;
+}
+#order-list .order {
+  margin: 0.2rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #ededed;
+}
+#order-list .order img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.1rem;
+}
+#order-list .order .order-main {
+  width: 70%;
+  margin-left: 0.25rem;
+}
+#order-list .order .order-main .count {
+  color: #888888;
+}
+#order-list .order .order-main .money {
+  color: #da251d;
+}
+#order-list .order .order-main .total {
+  color: #da251d;
+  font-size: 0.3rem;
+}
+.productTitle {
+  color: #72706f;
+  font-size: 16px;
+}
+
+.orderOption{
+
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.orderOptionList{
+  width:13%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  line-height: 55px;
+}
+.orderOptionListTextBox{
+  position: absolute;
+  top: -65px;
+  right: -100px;
+  width: 100px;
+}
+.orderOptionListText{
+  transform: skew(40deg,-40deg);
+  font-size: 12px;
+  position: relative;
+  color: #a6a6ab;
+  text-align: left;
+}
+.orderOptionListText::before{
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width:60px;
+  height: 1px;
+  content: "";
+  background-color: #f3f4f5;
+}
+
+.orderOptionListNumber{
+  padding:2px 6px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background-color:#a6a6ab;
+  font-size: 12px;
+  position: relative;
+}

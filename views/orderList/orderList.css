@@ -1,0 +1,47 @@
+.fanhui {
+	font-size: 1.25em !important;
+	color: white;
+	left: 0;
+	top: 0;
+}
+
+.mui-slider img {
+	height: 13rem;
+}
+.shopImg{
+	width: 6.25rem;
+	height: 6.25rem;
+	
+}
+.bor_ltb_ra1{
+	border-radius: 0.3rem 0 0 0.3rem;
+}
+.bor_rtb_ra1{
+	border-radius: 0 0.3rem 0.3rem 0;
+}
+.bor0{
+	border: 0 !important;
+}
+.mui-switch.mui-active:before{content: '是';}
+.mui-switch:before{content: '否';}
+
+.orderOption{
+
+	width: 100%;
+	height: 55px;
+	display: flex;
+	align-items: center;
+}
+
+.orderOptionList{
+	width:14%;
+	height: 100%;
+	position: relative;
+}
+
+.orderOptionListText{
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: skewY(-30deg);
+}

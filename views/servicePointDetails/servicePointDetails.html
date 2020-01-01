@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>服务网点</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/common/ui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="css/servicePointDetails.css" />
+	</head>
+
+	<body>
+		<div id="service-point">
+			<header class="mui-bar mui-bar-nav">
+				<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+				<h1 class="mui-title">网点详情</h1>
+			</header>
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop" v-if="headFileList.length>0">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<img :src="fileUrl + headFileList[headFileList.length-1]">
+					</div>
+					<div class="mui-slider-item" v-for="(pic, i) in headFileList" :key="i">
+						<img :src="fileUrl + headFileList[i]" data-preview-src="" data-preview-group="1">
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<img :src="fileUrl + headFileList[0]">
+					</div>
+				</div>
+				<div class="mui-slider-indicator" v-if="headFileList.length>0">
+					<div class="mui-indicator" :class="{'mui-active': i==0}" v-for="(pic, i) in headFileList" :key="i"></div>
+				</div>
+			</div>
+
+			<div class="msgBox">
+				<h4>{{serviceBranch.name}}</h4>
+				<p>联系电话：{{serviceBranch.userNumber}}</p>
+				<p>服务内容：{{serviceBranch.content}}</p>
+				<p>地址：{{serviceBranch.province+serviceBranch.city+serviceBranch.county+serviceBranch.address}}</p>
+				<div style="text-align: end;">
+					<button onclick="logoAddress()" type="button" class="mui-btn mui-btn-success">一键导航</button>
+				</div>
+			</div>
+			<img style="width: 100%;display: block;" v-if="serviceBranch.contentFilePath!=null" v-for="(item,i) in serviceBranch.contentFilePath.split('|') " :src="fileUrl+item"  />
+
+		</div>
+		<div id="map"></div>
+		<input type="hidden" id="lng" />
+		<input type="hidden" id="lat" />
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5QEcaoZOqMSYxyjGTWch3z9T68EFVAyV"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+		<script src="../userMess/js/newAddress.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/transformation.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/zoom.js"></script>
+		<script src="../../js/previewimage.js"></script>
+		<script src="js/servicePointDetails.js"></script>
+	</body>
+
+</html>

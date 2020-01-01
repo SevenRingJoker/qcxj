@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="css/gameWinLog.css" />
+	</head>
+	<div id="gameWinLog">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title">中奖记录</h1>
+		</header>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="msg-box">
+					<div class="msg" v-for="winningLog in winningLogList">
+						<div style="width: 100%;">
+							<p>类型：{{winningLog.game.awardType}}</p>
+							<p>奖品：{{winningLog.game.title}}</p>
+							<p v-if="winningLog.game.awardType=='积分'">积分：{{winningLog.game.integral}}</p>
+							<p v-if="winningLog.game.awardType=='抵扣券'">抵扣券：{{winningLog.game.conversion}}</p>
+							<p v-if="winningLog.game.awardType=='兑换商品'">标题：{{winningLog.game.productTitle}}</p>
+							<p v-if="winningLog.game.awardType=='兑换商品'">分类：{{winningLog.game.productSubTitle}}</p>
+							<p>时间：{{winningLog.createDate}}</p>
+							<button v-if="winningLog.game.awardType=='兑换商品'" type="button" class="mui-btn mui-btn-success" style="float: right;" onclick="confirmOrder()">查看订单</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<body>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.js"></script>
+		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/gameWinLog.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

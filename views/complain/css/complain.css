@@ -1,0 +1,50 @@
+#complain .content {
+  border: none;
+  border-bottom: 1px solid #ededed;
+  font-size: 0.28rem;
+  margin: 0 !important;
+}#complain input[type='file'] {
+  opacity: 0;
+}
+#complain .imgs-area {
+  padding: 0.2rem 0 0.2rem 0.3rem;
+  flex-wrap: wrap;
+}
+#complain .imgs-area .pic-box {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.3rem;
+  margin-right: 0.3rem;
+}
+#complain .imgs-area .pic-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#complain .imgs-area .pic-box i {
+  position: absolute;
+  right: -0.1rem;
+  top: -0.2rem;
+  color: #fff;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: red;
+  text-align: center;
+  line-height: 0.5rem;
+  border-radius: 100%;
+}
+#complain .imgs-area .add-btn {
+  position: relative;
+}#complain .btn {
+  width: 70%;
+  margin: 0.4rem auto;
+  padding: 0;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  color: #fff;
+  font-size: 0.32rem;
+  text-align: center;
+  background: #007AFF;
+  border-radius: 0.1rem;
+}

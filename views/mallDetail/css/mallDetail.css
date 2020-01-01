@@ -1,0 +1,252 @@
+#mall-detail {
+  padding-bottom: 1rem;
+}
+#mall-detail .mui-slider {
+  position: relative;
+}
+#mall-detail .mui-slider .mui-slider-item a {
+  text-align: center;
+}
+#mall-detail .mui-slider .banner-count {
+  position: absolute;
+  top: 80%;
+  right: 5%;
+  padding: 0 0.2rem;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 0.2rem;
+}
+#mall-detail .product-name {
+  padding: 0.2rem;
+  font-size: 0.42rem;
+  color: #727A6F;
+}
+#mall-detail .button-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  height: 1rem;
+  font-size: 0.21rem;
+  justify-content: flex-end;
+  z-index: 100;
+}
+#mall-detail .button-bar .car {
+  padding-top: 0.2rem;
+  width: 20%;
+  text-align: center;
+}
+#mall-detail .button-bar .car i {
+  font-size: 0.4rem;
+}
+#mall-detail .button-bar .btns {
+  width: 80%;
+}
+#mall-detail .button-bar .btns .button {
+  height: 1rem;
+  line-height: 1rem;
+  width: 50%;
+  background-color: #f02b2b;
+  color: #fff;
+  font-size: 0.3rem;
+  text-align: center;
+}
+#mall-detail .button-bar .btns .add-car-button {
+  background: #CEAC78;
+}
+#mall-detail .flex {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+}
+#mall-detail .jsb {
+  justify-content: space-between;
+}
+#mall-detail .category-title {
+  height: 1px;
+  background-color: #AAA9A9;
+}
+#mall-detail .imgs img {
+  width: 100%;
+}
+#mall-detail .product-intro {
+  padding: 0.2rem;
+}
+#mall-detail .product-intro .intro-title {
+  font-size: 0.32rem;
+  color: #CEAC78;
+}
+#mall-detail .product-intro .intro-content {
+  display: block;
+  border: none;
+  padding: 0;
+  color: #999;
+  font-size: 0.28rem;
+  margin-bottom: 0 !important;
+}
+#mall-detail .item {
+  justify-content: space-between;
+  padding: 0.2rem;
+  align-items: center;
+  font-size: 0.28rem;
+}
+#mall-detail .item span {
+  font-size: 0.28rem;
+}
+#mall-detail #popover {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0;
+  height: 70%;
+  border-radius: 0 !important;
+}
+#mall-detail #popover .show-pic {
+  margin-top: -1rem;
+}
+#mall-detail #popover .show-pic .price {
+  margin-left: 0.4rem;
+  margin-top: 1.1rem;
+  font-size: 0.32rem;
+  color: #f02b2b;
+  font-weight: bold;
+}
+#mall-detail #popover .show-pic .price .des {
+  font-weight: normal;
+  color: #666;
+  font-size: 0.24rem;
+}
+#mall-detail #popover .show-pic img {
+  width: 2rem;
+  height: 2rem;
+  border: 0.1rem solid #F2F2F2;
+  border-radius: 0.1rem;
+  margin-left: 10px;
+}
+#mall-detail #popover .close {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.2rem;
+}
+#mall-detail #popover .classes {
+  padding: 0 0.2rem;
+  color: #999;
+}
+#mall-detail #popover .classes .classes-title {
+  margin-bottom: 0.1rem;
+}
+#mall-detail #popover .classes .acount {
+  padding: 0.2rem;
+}
+#mall-detail #popover .classes .mui-input-numbox {
+  border: none !important;
+}
+#mall-detail #popover .classes ul li {
+  margin-bottom: 0.2rem;
+  margin-right: 0.1rem;
+  display: inline-block;
+  padding: 0 0.3rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  border-radius: 0.05rem;
+  border: 1px solid #999;
+  color: #333;
+}
+#mall-detail #popover .classes ul li.active {
+  border: 1px solid #f02b2b;
+  color: #f02b2b;
+}
+#mall-detail #popover .exchange-btn {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: #f02b2b;
+  color: #fff;
+  font-size: 0.36rem;
+  z-index: 100;
+}
+#mall-detail #popover .exchange-btn div {
+  width: 50%;
+  height: 100%;
+}
+#mall-detail #popover .exchange-btn .add-car-btn {
+  background: #CEAC78;
+}
+#mall-detail .mui-popover {
+  border-radius: 0 !important;
+}
+#mall-detail #explain {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0;
+  height: 70%;
+}
+#mall-detail #explain .explain-header {
+  text-align: center;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #ddd;
+}
+#mall-detail #explain .explain-title {
+  margin: 0.4rem 0.2rem 0;
+  font-size: 0.36rem;
+}
+#mall-detail #explain .explain-title i {
+  margin-right: 0.2rem;
+}
+#mall-detail #explain .explain-content {
+  padding: 0.2rem;
+  color: #666;
+}
+#mall-detail #explain .btn {
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 1rem;
+  line-height: 1rem;
+  background: #ff6347;
+  color: #fff;
+  font-size: 0.32rem;
+}
+.share {
+  width: 100%;
+  background: #efeff4;
+  padding: 20px;
+}
+.share > a {
+  float: right;
+}
+.share > div {
+  text-align: center;
+}
+.share > div img {
+  width: 70%;
+}
+.share .shareBtn {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+.share .shareBtn img {
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: 0;
+}
+.share .shareBtn p {
+  margin: 0;
+  font-size: 12px;
+}

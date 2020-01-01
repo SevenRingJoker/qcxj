@@ -1,0 +1,15 @@
+#notice-list .notice-list .notice-item {
+  padding: 0.3rem 0.2rem;
+  border-bottom: 1px solid #F2F2F2;
+}
+#notice-list .notice-list .notice-item p {
+  padding: 0;
+  margin: 0;
+  text-align: left !important;
+}
+#notice-list .notice-list .notice-item .title {
+  font-size: 0.32rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}

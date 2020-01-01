@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/order-list.css" />
+	</head>
+
+	<body style="background: white;">
+<!--		<header class="mui-bar mui-bar-nav" style="position: relative;">-->
+<!--			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+<!--			<h1 class="mui-title">订单</h1>-->
+<!--		</header>-->
+		<div class="qcxj_head">
+			<div class="qcxj_headBox">
+				<div class="qcxj_headBoxView">
+					<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">
+					<span class="qcxj_headBoxViewText">订单</span>
+				</div>
+			</div>
+		</div>
+		<div class="qcxj_headSwitch"></div>
+		<div class="goBack" onclick="goback()">
+<!--			<span class="iconfont icon-fanhui1"></span>-->
+			<div class="backImgClass">
+				<img  src="../../img/back.png" alt="">
+			</div>
+		</div>
+		<div id="order-list" style="margin-top: 40px;">
+			<div class="orderOption">
+				<div class="orderOptionList" v-for="(item,index) in orderOptionList" :key="index" @click="optionChange(index)">
+					<span class="orderOptionListNumber" :style="{backgroundColor:optionIn==index?'#f70000':'#a6a6ab'}">{{ item.count }}
+						<div class="orderOptionListTextBox">
+							<div class="orderOptionListText" :style="{color:optionIn==index?'#f70000':'#a6a6ab'}">
+								{{ item.name }}
+							</div>
+						</div>
+					</span>
+				</div>
+			</div>
+<!--			<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="height: 1rem;">-->
+<!--				<div class="mui-scroll" style="min-width: 100%; height: 1rem;">-->
+<!--					<div class="haeder-tab flex ai" id="header">-->
+<!--						<div class="status active"><span class="statusText">全部</span></div>-->
+<!--						<div class="status"><span class="statusText">待支付</span><span class="statusCount">{{payCount}}</span></div>-->
+<!--						<div class="status"><span class="statusText">待发货</span><span class="statusCount">{{sendCount}}</span></div>-->
+<!--						<div class="status"><span class="statusText">待收货</span><span class="statusCount">{{deliveryCount}}</span></div>-->
+<!--						<div class="status"><span class="statusText">已收货</span><span class="statusCount">{{receivedCount}}</span></div>-->
+<!--						<div class="status"><span class="statusText">待评价</span><span class="statusCount">{{receivedCount}}</span></div>-->
+<!--						<div class="status"><span class="statusText">申请退款</span><span class="statusCount">{{reimburseCount}}</span></div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="orderOption"></div>-->
+<!--			<div class="category-title" style="background-color: #ededed; height: .1rem;margin-bottom: 1rem;"></div>-->
+			<div class="mui-fullscreen">
+				<div class="mui-scroll-wrapper">
+					<div class="data-list mui-scroll">
+						<div class="list-box">
+							<div class="order flex" v-if="lists.length>0" v-for="(item, i) in lists" :key="i" :obj="JSON.stringify(item)">
+								<img :src="fileUrl + item.productFilePath" />
+								<div class="order-main">
+									<div class="productTitle">{{item.productTitle}}</div>
+									<div class="color-666 font-24">规格：{{item.subProductTitle}}</div>
+									<!-- <div class="color-666 font-24" v-if='item.payStatus!=null'>付款方式：{{item.payStatus}}</div> -->
+									<div class="flex jsb">
+										<div class="money font-30">￥{{item.price}}</div>
+										<div class="color-666 font-24">{{item.status}}</div>
+										<div class="count">x {{item.count}}</div>
+									</div>
+									<div class="flex jsb">
+										<div class="font-24">{{item.createDate}}</div>
+										<div class="total" v-if="item.totalIntegral!=null">总积分 ￥{{item.totalIntegral}}</div>
+									</div>
+									<!-- 	<div class="flex jsb" v-if="item.totalIntegral>0">
+										<div></div>
+										<div class="total">合计积分 ￥{{item.totalIntegral}}</div>
+									</div>
+									<div class="flex jsb" v-if="item.totalConversion>0">
+										<div></div>
+										<div class="total">合计抵扣券 ￥{{item.totalConversion}}</div>
+									</div>
+									<div class="flex jsb" v-if="item.total>0">
+										<div></div>
+										<div class="total">合计金额 ￥{{item.total}}</div>
+									</div> -->
+								</div>
+							</div>
+
+							<div v-if="lists.length==0" style="width: 100%;text-align: center;">
+								<img src="imgs/nullorder.png" style="width: 20%; margin-top: 30%;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<nav class="mui-bar mui-bar-tab" style="background: #efeff4;">
+			<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+				<span class="mui-icon iconfont icon-huodong"></span>
+				<span class="mui-tab-label">活动</span>
+			</a>
+			<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+				<span class="mui-icon iconfont icon-tuandui1"></span>
+				<span class="mui-tab-label">团队</span>
+			</a>
+			<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+				<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+				<span class="mui-tab-label">体验与分享</span>
+			</a>
+			<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+				<span class="mui-icon iconfont icon-kefu1"></span>
+				<span class="mui-tab-label">客服</span>
+			</a>
+			<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.js"></script>
+		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/api.js"></script>
+		<script src="../../js/plugin/loading.js"></script>
+		<script src="js/orderList.js"></script>
+		<script>
+			window.onload = function() {
+				var top = $('#header').outerHeight(true)
+				document.querySelector('.mui-fullscreen').style.top = top + 150 + 'px';
+			}
+		</script>
+	</body>
+
+</html>

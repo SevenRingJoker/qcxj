@@ -1,0 +1,112 @@
+html,
+body {
+	height: 100%;
+}
+
+#data-center {
+	min-height: 100%;
+	padding-bottom: 1rem;
+}
+
+#data-center .data-center-main {
+	font-size: 0.32rem;
+	margin-top: 20px;
+	color: white;
+	border-radius: 10px;
+	;
+}
+
+#data-center .data-center-main .mui-progressbar {
+	height: 1.2rem;
+	background: #f2f2f2;
+	border-radius: 0.5rem;
+}
+
+#data-center .data-center-main .process-box {
+	padding: 0.2rem 0;
+	font-size: 0.9rem;
+	color: #333;
+	background: #fff;
+	border-radius: 10px;
+	margin: 5px;
+}
+
+#data-center .data-center-main .process-box .item-key {
+	flex: 4;
+	text-align: center;
+}
+
+#data-center .data-center-main .process-box .item-value {
+	flex: 8;
+}
+
+#data-center .data-center-main .process-box .item-remark {
+	flex: 3;
+	font-size: 0.75rem;
+	color: #666;
+	text-align: center;
+}
+
+.data-center-title {
+	color: #2AC845;
+	background: rgba(0, 0, 0, 0.7);
+	text-align: center;
+}
+
+.shuaxin {
+	font-size: 1.25em !important;
+	color: white !important;
+	right: 0;
+	top: 0;
+}
+
+.bg {
+	background: url(img/bg.png) no-repeat 100% 100%;
+	background-size: 100% 100%;
+	height: 8.25rem;
+}
+
+.tips {
+	padding: .5rem 0;
+	margin-top: 0.2rem;
+}
+
+.color_52b4ac {
+	color: rgb(206, 172, 120);
+}
+
+.list {
+	min-height: 20rem;
+}
+
+#everyMonthTotal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+
+}
+
+#everyMonthTotal p {
+	color: white;
+	margin: 0;
+}
+
+#agent-box {
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.packageItem {
+	border-bottom: 4px solid rgb(222, 222, 221);
+	color: rgb(170, 169, 169);
+	margin: 10px;
+	padding: 2px 5px;
+	font-size: 17px;
+
+}
+
+.agentAct {
+	border-bottom: 4px solid rgb(218, 37, 29);
+	color: rgb(218, 37, 29);
+}

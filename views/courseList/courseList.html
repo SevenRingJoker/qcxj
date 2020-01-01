@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/courseLise.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common/g_common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pull.css"/>
+</head>
+<body>
+    <div id="course-list">
+    	<header class="mui-bar mui-bar-nav">
+    	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    	    <h1 class="mui-title">无界直播间</h1>
+    	</header>
+    	<div class="mui-scroll-wrapper">
+    		<div class="mui-scroll">
+    			<div class="course-list flex">
+    				<div :url="course.url" class="course-item" :style="'background-image: url('+ fileUrl + course.filePath +')'" v-if="courseList.length>0" v-for="(course, i) in courseList" key="i">
+    					<div class="title mui-ellipsis">{{course.title}}</div>
+    					<div class="des">
+    						<div class="mui-ellipsis">{{course.openTime}}</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/plugin/vue.min.js"></script>
+    <script src="../../js/plugin/jquery2.1.min.js"></script>
+    <script src="../../js/mui.pullToRefresh.js"></script>
+    <script src="../../js/mui.pullToRefresh.material.js"></script>
+    <script src="../../js/common/commonFn.js"></script>
+    <script src="../../js/plugin/vue.min.js"></script>
+    <script src="js/courseList.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>上传任务截图</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/uploadTask.css" />
+	</head>
+
+	<body>
+		<div id="uploadTask">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">上传任务截图</h1>
+			</header>
+			<div class="uploader flex jsb ai">
+				<div>上传任务截图</div>
+				<div class="flex">
+					<div id="add-btn" style="padding:5px 10px;margin-right: .1rem;background: #0062CC; color: #fff;border-radius: 5px;font-size:.28rem;">
+						选取图片
+					</div>
+					<div id="upload-btn" style="padding:5px 10px;background: #4CD964; color: #fff;border-radius: 5px;font-size:.28rem;">
+						上传图片
+					</div>
+				</div>
+			</div>
+			<img :src="fileUrl + filePath" alt="" v-if="filePath" style="display:block;max-width: 90%; margin: .1rem auto;" />
+		</div>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/webUploader/webuploader.nolog.min.js"></script>
+		<script src="../../js/plugin/loading.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script type="text/javascript">
+			var PicUploadUrl = baseUrl + 'file/uploadImage?state=user';
+			var shareSuccessUrl = baseUrl + 'materialTask/save';
+			var userInfo = JSON.parse(localStorage.getItem("userInfo"));
+			var vm = new Vue({
+				el: "#uploadTask",
+				data: {
+					filePath: ''
+				}
+			});
+			uploader('#add-btn', PicUploadUrl, function(file) {
+				// 当文件添加进来的成功回调
+				mui.showLoading("上传中...", "div");
+			}, null, function(file, res) {
+				vm.filePath = res.imgPath;
+				mui.hideLoading();
+			}, null, null, true);
+
+			mui("#uploadTask").on('tap', "#upload-btn", function() {
+				if(vm.filePath == '') {
+					plusToast('请选取图片后再上传');
+					return false;
+				}
+				
+				mui.showLoading("提交中...", "div");
+				ajaxPost(shareSuccessUrl, {
+					userId: userInfo.id,
+					userName: userInfo.userName,
+					materialId: getQueryString('taskId'),
+					filePath: vm.filePath,
+					status: '待审核'
+				}, function(res) {
+					mui.hideLoading();
+					plusToast("提交成功，等待审核");
+					setTimeout(function(){
+						goback()
+					}, 800)
+				}, function(){
+					ajaxError();
+					mui.hideLoading();
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+.fanhui {
+	font-size: 1.25em !important;
+	color: white;
+	left: 0;
+	top: 0;
+}
+
+.mui-slider {
+  position: relative;
+}
+.mui-slider .mui-slider-item a {
+  text-align: center;
+}
+.mui-slider .mui-slider-item a img {
+  height: 200px;
+}
+.mui-slider .banner-count {
+  position: absolute;
+  top: 80%;
+  right: 5%;
+  padding: 0 0.2rem;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 0.2rem;
+}
