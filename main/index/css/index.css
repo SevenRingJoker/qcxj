@@ -28,7 +28,7 @@ body {
 	line-height: 30px;
 	border: none;
 	border-radius: 5px;
-	width: 58%;
+	width: 60%;
 }
 
 .advert .iconfont {
@@ -427,7 +427,7 @@ body {
 	flex-wrap: wrap;
 	margin: 5px;
 	border-radius: 5px;
-	border-bottom: 1px solid #E1E1E1;
+	/* border-bottom: 1px solid #E1E1E1; */
 }
 
 .type-list .type-item {
@@ -589,10 +589,12 @@ body {
 .product_content{
 	display: -webkit-box;
 	overflow: hidden;
+	height: 42px;
 	white-space: normal!important;
-	text-overflow: ellipsis;
+	/* text-overflow: ellipsis;
 	word-wrap: break-word;
 	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
+	-webkit-box-orient: vertical; */
 	color: rgb(170,169,169);
+	margin-bottom: 10px;
 }

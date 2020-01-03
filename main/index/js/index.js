@@ -193,6 +193,7 @@ function getHomeProduct(moduleName) {
 		moduleName: moduleName,
 		isShow:'true'
 	}, function(res) {
+		console.log(res)
 		vm.mapList = res.mapList;
 	}, function() {
 		ajaxError()

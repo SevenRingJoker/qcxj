@@ -14,7 +14,14 @@ var vm = new Vue({
 		pageSize: 10,
 		pageCount: 1,
 		notictTypeList: [],
-		noticeType: ''
+		noticeType: '',
+		optionIn:0
+	},
+	methods:{
+		optionChange(index){
+			this.optionIn = index;
+			getNoticeType();
+		}
 	}
 })
 var userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -146,12 +153,15 @@ function getData(init, cb) {
 		return false;
 	}
 	vm.pageNo += 1;
+	console.log(vm.noticeType)
+	console.log(vm.notictTypeList[vm.optionIn].type)
 	ajaxPost(noticegetUrl, {
 		pageNo: vm.pageNo,
 		pageSize: vm.pageSize,
 		status: 'true',
-		type: vm.noticeType
+		type: vm.notictTypeList[vm.optionIn].type
 	}, function(res) {
+		console.log(res)
 		if (init) {
 			vm.noticeList = res.data;
 		} else {

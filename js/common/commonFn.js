@@ -245,6 +245,11 @@ function waittingClose() {
 }
 
 function openWindow(url) {
+	if(checkLogin()&&url=="../association/association.html"){
+		mui.toast("请先登陆");
+		openWindow("../../views/login/login.html")
+		return false;
+	}
 	if(mui.os.plus) {
 		mui.openWindow({
 			url: url,

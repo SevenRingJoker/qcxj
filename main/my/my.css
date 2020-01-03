@@ -307,3 +307,50 @@
   color: #da251d;
   border-bottom: 3px solid #da251d;
 }
+
+.orderOption{
+
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.orderOptionList{
+  width:13%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  line-height: 55px;
+}
+.orderOptionListTextBox{
+  position: absolute;
+  top: -32px;
+  right: -66px;
+  width: 100px;
+}
+.orderOptionListText{
+  transform: skew(40deg,-40deg);
+  font-size: 12px;
+  position: relative;
+  color: #a6a6ab;
+  text-align: left;
+}
+.orderOptionListText::before{
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width:60px;
+  height: 1px;
+  content: "";
+  background-color: #f3f4f5;
+}
+
+.orderOptionListNumber{
+  padding:2px 6px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background-color:#a6a6ab;
+  font-size: 12px;
+  position: relative;
+}

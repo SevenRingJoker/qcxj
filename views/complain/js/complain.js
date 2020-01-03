@@ -3,7 +3,8 @@ var PicUploadUrl = baseUrl + 'file/uploadImage?state=user';
 var vm = new Vue({
     el: '#complain',
     data: {
-        imgs: []
+        imgs: [],
+		optionList:[]
     }
 });
 

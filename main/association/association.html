@@ -112,15 +112,15 @@
 					</div>
 				</div>
 			</div>-->
-			<div class="qcxj_head">
-				<div class="qcxj_headBox">
-					<div class="qcxj_headBoxView">
-						<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">
-						<span class="qcxj_headBoxViewText">体验分享</span>
-					</div>
-				</div>
-			</div>
-			<div class="qcxj_headSwitch"></div>
+			<!--<div class="qcxj_head">-->
+				<!--<div class="qcxj_headBox">-->
+					<!--<div class="qcxj_headBoxView">-->
+						<!--<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">-->
+						<!--<span class="qcxj_headBoxViewText">体验分享</span>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="qcxj_headSwitch"></div>-->
 <!--			<div style="display: flex;margin-top: 30px;">-->
 <!--				<div style="width: 20%;text-align: center;">-->
 <!--					<img style="width: 50px;height: 50px;" src="../../views/SignIn/img/push.png" alt="">-->
@@ -131,27 +131,28 @@
 <!--				</div>-->
 <!--			</div>-->
 
-			<div id="signIn">
-				<textarea style="height: 50px;padding: 5px;box-sizing: border-box;" class="content" name="content" rows="6" maxlength='500' placeholder='分享健康新鲜事...'></textarea>
-				<div class="imgs-area flex">
-					<div class="pic-box" v-if="imgs.length>0" v-for="(pic, p) in imgs" key="p">
-						<i class="iconfont icon-guanbi delete" :picIndex="p"></i>
-						<img :src="fileUrl + pic" alt="" data-preview-src="" data-preview-group="1" />
+			<img :src="fileUrl+picture.associationFilePath" alt="" style="width: 100%;">
+			<div>
+				<div id="signIn">
+					<textarea style="height: 50px;padding: 5px;box-sizing: border-box;" class="content" name="content" rows="6" maxlength='500' placeholder='分享健康新鲜事...'></textarea>
+					<div class="imgs-area flex">
+						<div class="pic-box" v-if="imgs.length>0" v-for="(pic, p) in imgs" key="p">
+							<i class="iconfont icon-guanbi delete" :picIndex="p"></i>
+							<img :src="fileUrl + pic" alt="" data-preview-src="" data-preview-group="1" />
+						</div>
+						<div class="add-btn pic-box" v-show="imgs.length<8 && vedioSrc == ''" id="add-btn">
+							<img src="../../views/SignIn/img/push.png" />
+						</div>
 					</div>
-					<div class="add-btn pic-box" v-show="imgs.length<8 && vedioSrc == ''" id="add-btn">
-						<img src="../../views/SignIn/img/push.png" />
+					<div class="btns">
+						<button type="button" class="mui-btn fabu">发表</button>
 					</div>
-				</div>
-				<div class="btns">
-					<button type="button" class="mui-btn fabu">发表</button>
-				</div>
-				<div class="video-box" v-if="vedioSrc != ''">
-					<i class="iconfont icon-guanbi" onclick="deleteVedio()"></i>
-					<video :src="fileUrl + vedioSrc" controls="controls" poster="../../main/association/imgs/lookVideo.jpg"></video>
+					<div class="video-box" v-if="vedioSrc != ''">
+						<i class="iconfont icon-guanbi" onclick="deleteVedio()"></i>
+						<video :src="fileUrl + vedioSrc" controls="controls" poster="../../main/association/imgs/lookVideo.jpg"></video>
+					</div>
 				</div>
 			</div>
-
-			<img :src="fileUrl+picture.associationFilePath" alt="" style="width: 100%;">
 			<div class="msg-box">
 				<div v-if="list.length>0" v-for="(item, i) in list" key="i" style="padding: 10px;border-bottom: 1px solid rgb(222, 222, 221);">
 					<div class="msg-list">
