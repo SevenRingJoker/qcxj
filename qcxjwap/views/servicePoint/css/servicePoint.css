@@ -1,0 +1,28 @@
+html,
+body {
+  height: 100%;
+}
+#service-point,
+#map {
+  height: 0;
+}
+#service-point .service-list .service-item {
+  font-size: 0.28rem;
+  color: #666;
+  padding: 0.2rem;
+  border-bottom: 1px solid #ededed;
+}
+#service-point .service-list .service-item .service-shop-name {
+  font-size: 0.32rem;
+  color: #333;
+}
+#service-point .service-list .service-item .service-info {
+  margin-left: 10px;
+}
+#service-point .service-list .service-item img {
+  width: 2rem;
+  height: 2rem;
+}
+#service-point p {
+  margin: 0;
+}

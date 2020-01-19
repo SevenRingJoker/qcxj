@@ -1,0 +1,40 @@
+#course-list {
+    .mui-scroll-wrapper {
+        padding-top: 44px;
+    }
+    .course-list {
+        background: #fff;
+        .course-item {
+            position: relative;
+            padding: .2rem;
+            width: 48%;
+            margin: .2rem 1%;
+            height: 3rem;
+            background-size: 100% 100%;
+            border-radius: .1rem;
+            .title {
+                display: inline-block;
+                padding: .1rem;
+                max-width: 100%;
+                color: #fff;
+                font-size: .32rem;
+                border-radius: 10px;
+                background: rgba(0, 0, 0, .3);
+            }
+            .des {
+                position: absolute;
+                width: 88%;
+                bottom: 0;
+                &>div {
+                    display: inline-block;
+                    max-width: 100%;
+                    padding: .05rem .12rem;
+                    background: rgba(0, 0, 0, .3);
+                    border-radius: 10px;
+                    color: #fff;
+                    font-size: .26rem;
+                }
+            }
+        }
+    }
+}

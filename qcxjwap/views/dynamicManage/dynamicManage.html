@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>动态管理</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="../../main/association/association.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/image.css" />
+	</head>
+
+	<body>
+		<div id="association">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">动态管理</h1>
+			</header>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="msg-box">
+						<div v-if="list.length>0" v-for="(item, i) in list" key="i">
+							<div class="msg-list">
+								<div class='head'>
+									<!--<img :src="fileUrl + item.userHead" />-->
+									<img :src="headImg!=null&&headImg!=''?headImg:'../../main/association/imgs/logo.png'" />
+									<div style="width: 100%;">
+										<span v-text="item.userName"></span>
+										<div>
+											<span v-text="item.createDate"></span>
+										</div>
+									</div>
+									<div class="delete-btn" style="width: 20%;cursor: pointer;color: red;" :msgId="item.id" :msgIndex="i">删除</div>
+								</div>
+								<!--内容-->
+								<div class="font-30" v-text="item.content"></div>
+								<!--内容图-->
+								<div class='conImg' v-if="item.filePath&&item.filePath.length>0">
+									<img v-if="getSuffix(pic) == 'jpg' || getSuffix(pic) == 'jpeg' || getSuffix(pic) == 'png' || getSuffix(pic) == 'gif'" :src="fileUrl + pic" v-for="(pic, p) in item.filePath.split('|')" key="p" data-preview-src="" :data-preview-group="i" />
+									<video v-if="getSuffix(pic) == 'mp4' || getSuffix(pic) == 'flv' || getSuffix(pic) == 'avi' || getSuffix(pic) == 'MOV'" :src="fileUrl + pic" v-for="(pic, p) in item.filePath.split('|')" key="p" controls="controls" style="display: block; width: 100%; height: 4rem;"></video>
+								</div>
+								<!--工具栏-->
+								<div class='tool'>
+									<!--分享-->
+									<!--<div id="share" class="share" :msgId="item.id" :msgIndex="i">
+										<span class='iconfont icon-fenxiang'></span>
+										<span v-text="item.share"></span>
+									</div>-->
+
+									<!--评价-->
+									<div class="comment" :msgId="item.id">
+										<span class='iconfont icon-liuyan'></span>
+										<span v-text="item.comment"></span>
+									</div>
+
+									<!--点赞-->
+									<div class="praise" :msgId="item.id" :msgIndex="i">
+										<span class='iconfont icon-dianzan' :class="{'color-red': item.isParise == 'true'}"></span>
+										<span v-text="item.praise" :class="{'color-red': item.isParise == 'true'}"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.js"></script>
+		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/zoom.js"></script>
+		<script src="../../js/previewimage.js"></script>
+		<script src="../../js/downloadImage.js"></script>
+		<script src="js/dynamicManage.js"></script>
+	</body>
+
+</html>

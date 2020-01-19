@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="suggest.css" />
+		<title>投诉建议</title>
+		<style type="text/css">
+			.fanhui {
+				font-size: 1.25em !important;
+				color: white;
+				left: 0;
+				top: 0;
+			}
+			.bor0{
+				border: 0 !important;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="pr h100">
+			<div class="pf w100 z999 bg_333">
+				<div class="ub ub-pc pa_a_05 color_white ">
+					<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+					<div class="">投诉建议</div>
+				</div>
+			</div>
+			<div class="pa_t_23">
+				<div class="pa_lr_05 ma_a_05 bg_fff bor_ra2 font_28">
+					<div class="ub ub-ac bor_b_ccc pa_tb_05">
+						<div class="ub-f1 pa_l_1 tx-c">联系电话</div>
+						<input class="ub-f2 bor0 font_28" type="text" value="" placeholder="请输入联系电话"/>
+					</div>
+					<div class="ub ub-ac bor_b_ccc pa_tb_05">
+						<div class=" ub-f1 pa_l_1 tx-c">邮件</div>
+						<input class="ub-f2 bor0 font_28" type="text" value="" placeholder="请输入联系邮件地址"/>
+					</div>
+					<div class="ub ub-ac pa_tb_05">
+						<div class="ub-f1 pa_l_1 tx-c">反馈内容</div>
+						<input class="ub-f2 bor0 font_28" type="text" value="" placeholder="请如实填写所要反馈内容的内容"/>
+					</div>
+				</div>
+				<div class="ma_t_2 ma_b_3 pa_lr_1">
+					<div class="bg_52b4ac color-fff pa_tb_1 tx-c bor_ra2" onclick="submit()">提交</div>
+				</div>
+			</div>
+		</div>
+			
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			
+		})
+		
+		function submit(){
+			alert('提交成功！')
+			goback();
+		}
+	</script>
+
+</html>

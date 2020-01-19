@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>数据中心</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="data.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<style type="text/css">
+			div {
+				position: none !important;
+			}
+			.qcxj_head{
+				position:fixed;
+				background-color:#d41518;
+				height: 50px;
+				width: 100%;
+				z-index: 111111;
+			}
+
+			.qcxj_headBox{
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+
+			.qcxj_headBoxView{
+				position: absolute;
+				bottom: 10px;
+				left: 20px;
+				display: flex;
+				align-items: center;
+			}
+
+			.qcxj_headBoxViewImg{
+				width:20px;
+				height: 20px;
+			}
+
+			.qcxj_headBoxViewText{
+				color: #FFFFFF;
+				font-size: 18px;
+				margin-left: 20px;
+			}
+
+			.backImgClass{
+				position: relative;
+				height: 100%;
+				width: 100%;
+			}
+
+			.backImgClass>img{
+				position: absolute;
+				transform: translateY(-50%);
+				top:50%;
+				right:4px;
+				width: 25px;
+				height: 50px;
+			}
+
+			.qcxj_headSwitch{
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+<!--		<div class="pf w100 z999 data-center-title">-->
+<!--			<div class="ub ub-pc pa_a_05 color_white ">-->
+<!--				<i class="pa iconfont icon-shuaxin shuaxin ma_r_05 ma_t_05 color_white" onclick="refresh()"></i>-->
+<!--				<div class="">全国代理统计</div>-->
+<!--			</div>-->
+<!--		</div>-->
+	<div class="qcxj_head">
+		<div class="qcxj_headBox">
+			<div class="qcxj_headBoxView">
+				<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">
+				<span class="qcxj_headBoxViewText">团队销售榜</span>
+			</div>
+		</div>
+	</div>
+	<div class="qcxj_headSwitch"></div>
+		<div id="data-center">
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item" onclick="openWindow('../index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item mui-active agent-enter" onclick="openWindow('../data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">分享与体验</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../medicine/medicine.html')">
+					<span class="mui-icon iconfont icon-kefu1"></span>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+			<div class="show-box ma_b_05">
+				<div>
+					<div id="everyMonthTotal" class="bg pr tx-c">
+						<p class=" font_28">团队：当月总销售额</p>
+						<p class="font_40 font_w" style="margin: 7px;">{{everyMonthTotal}}</p>
+						<!--<p>我的分红：{{myUser.member.pointRatio}}%（终身月制度）</p>-->
+						<p>{{myUser.member.name}}：第 {{myUser.joinCount}}位</p>
+					</div>
+				</div>
+				<div class="data-center-main"></div>
+			</div>
+			<div id="agent-box" class="pa_a_05 bg-fff ub ub-ac font_28">
+				<!--<div class="pa_tb_03 pa_lr_05 bg_8a6de9 color_fff bor_ra1 ma_r_05 ma_b_05" v-if="agents.length>0" v-for="(agent, a) in agents" key="a">{{agent.name}}</div>-->
+			</div>
+			<div class="mui-scroll-wrapper" style="bottom: 50px;">
+				<div class="mui-scroll">
+					<div class="pa_lr_1">
+						<div class="font_26 pa_tb_05 bor_b_ccc" v-if="users.length>0" v-for="(user, u) in users" key="u">
+							<div class="ub">
+								<p class="ub-f1 color_52b4ac">账号：{{user.userName}}</p>
+								<p class="ub-f1">创建时间：{{user.createDate.split(' ')[0]}}</p>
+							</div>
+							<div class="ub">
+								<div class="ub-f1">团队人数：0</div>
+								<div>占位：{{user.joinCount}}位</div>
+								<div class="ub-f1 tx-r color_coral" style="width: 20%;">积分：{{user.integral || 0}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="loading-box"></div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.js"></script>
+		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/plugin/loading.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script type="text/javascript" src="js/data.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/common/ui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/resourceType.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+			<h1 class="mui-title">资源银行</h1>
+		</header>
+		<div id="resourceType">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop" v-if="headFileList.length>0">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<img :src="fileUrl + headFileList[headFileList.length-1]" @click="headUrlDetails(headUrlList[length-1])">
+					</div>
+					<div class="mui-slider-item" v-for="(pic, i) in headFileList" :key="i">
+						<img :src="fileUrl + headFileList[i]" @click="headUrlDetails(headUrlList[i])">
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<img :src="fileUrl + headFileList[0]" @click="headUrlDetails(headUrlList[0])">
+					</div>
+				</div>
+				<div class="mui-slider-indicator" v-if="headFileList.length>0">
+					<div class="mui-indicator" :class="{'mui-active': i==0}" v-for="(pic, i) in headFileList" :key="i"></div>
+				</div>
+			</div>
+
+			<div class="resourceTypeList">
+				<div v-for="(resourceType,i) in resourceTypeList" @click="resourceTypeDetails(resourceType.type,resourceType.subType)">
+					<img :src="fileUrl+resourceType.filePath" />
+					<p>{{resourceType.type}}</p>
+				</div>
+
+			</div>
+			
+			<div class="foot">
+				<div>关于资源银行</div>
+				<div onclick="openWindow('../addResource/addResource.html')">发布资源</div>
+				<div>招商加盟</div>
+			</div>
+			
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/loading.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/resourceType.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

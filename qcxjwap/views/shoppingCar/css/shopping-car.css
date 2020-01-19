@@ -1,0 +1,92 @@
+#shopping-car .edit-bar {
+  padding: 0.1rem 0.4rem 0.1rem 0;
+  border-bottom: 1px solid #ededed;
+}
+#shopping-car .edit-bar i {
+  font-size: 0.4rem;
+}
+#shopping-car .mui-scroll-wrapper {
+  padding-bottom: 1rem;
+  background: white;
+}
+#shopping-car .mui-scroll-wrapper .order-list {
+  padding: 1px 0;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item {
+  padding: 0.3rem 0.2rem;
+  background-color: #fff;
+  border-radius: 0.1rem;
+  border-bottom: 1px solid #aaa9a9;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .checkBox-btn {
+  flex: 1;
+  width: 0.7rem;
+  height: 0.7rem;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .checkBox-btn div {
+  width: 100%;
+  height: 100%;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .checkBox-btn div input {
+  right: 0.05rem;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .order-main {
+  flex: 9;
+  margin-left: 0.1rem;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .order-main img {
+  width: 2.3rem;
+  max-height: 2.3rem;
+  border-radius: 0.1rem;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .order-main .oreder-intro {
+  margin-left: 0.25rem;
+  flex: 4;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .order-main .mui-numbox {
+  height: auto;
+  background: rgba(0, 0, 0, 0);
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .order-main .mui-numbox .mui-input-numbox {
+  display: block;
+  font-size: 0.24rem;
+  height: 0.45rem;
+  border-left: none !important;
+  border-right: none !important;
+}
+#shopping-car .button-bar {
+  position: fixed;
+  padding-left: 0.2rem;
+  bottom: 55px;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  height: 1rem;
+  font-size: 0.32rem;
+  z-index: 200;
+}
+#shopping-car .button-bar .jiesuan-btn {
+  height: 1rem;
+  line-height: 1rem;
+  width: 3rem;
+  background-color: #f02b2b;
+  color: #fff;
+  text-align: center;
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .order-main .mui-numbox {
+  background: -webkit-linear-gradient(to right, #FFFBF8, #FEEFD6);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(to right, #FFFBF8, #FEEFD6);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(to right, #FFFBF8, #FEEFD6);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #FFFBF8, #FEEFD6);
+}
+#shopping-car .mui-scroll-wrapper .order-list .order-item .order-main .mui-numbox .mui-input-numbox {
+  background: rgba(0, 0, 0, 0);
+}
+.mui-numbox [class*=btn-numbox],
+.mui-numbox [class*=numbox-btn] {
+  background: rgba(0, 0, 0, 0);
+}

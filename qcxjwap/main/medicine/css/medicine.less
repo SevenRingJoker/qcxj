@@ -1,0 +1,105 @@
+#medicine-page {
+    width: 100%;
+    height: 100%;
+    .flex {
+        display: flex;
+    }
+    //  .mui-off-canvas-left {
+    //      width: 70%;
+    //      background: #fff !important;
+    //  }
+    .mui-scroll-wrapper {
+        position: relative;
+    }
+    .mall-header {
+        height: 1rem;
+        align-items: center;
+        background-color: #fff;
+        padding: .2rem;
+        a {
+            font-size: .5rem;
+            color: #f02b2b;
+        }
+        .search-bar {
+            width: 3.8rem;
+            background: #e8e8e8;
+            height: .7rem;
+            overflow: hidden;
+            border-radius: .5rem;
+            display: flex;
+            align-items: center;
+            padding: .25rem;
+            flex-grow: 1;
+            input[type=text] {
+                margin-bottom: 0;
+                height: .7rem;
+                background: #e8e8e8;
+                border: none;
+                outline: none;
+                font-size: .28rem;
+                padding: 0 0 0 .1rem;
+                line-height: .5rem;
+            }
+        }
+        .mui-icon {
+            padding: 0;
+            font-size: .35rem !important;
+        }
+    }
+    .mui-scroll-wrapper {
+        color: #333;
+        font-size: .28rem;
+        .slider-title {
+            padding: .2rem;
+            font-size: .32rem;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        .brand-list {
+            li {
+                list-style: none;
+                padding: .2rem;
+                text-align: center;
+                border-top: 1px solid #ededed;
+                background-color: #fff;
+                &.active {
+                    font-weight: bold;
+                    color: #1f78ee;
+                    background-color: #ededed;
+                    border-left: 2px solid #1f78ee;
+                }
+                img {
+                    width: 90%;
+                    height: 1rem;
+                    text-align: center;
+                    border-radius: .05rem;
+                }
+            }
+        }
+        .product-list {
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .product-item {
+                padding: .2rem;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    }
+}
+.serveUser{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    p{
+        margin: 0;
+        font-size: 12px;
+    }
+}

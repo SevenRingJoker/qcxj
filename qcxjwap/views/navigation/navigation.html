@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>导航</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css"/>
+	<style type="text/css">
+		html,body {
+			height: 100%;
+		}
+		#iframe-page {
+			height: 100%;
+		}
+		iframe {
+			display: block;
+			border: none;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+    <div id="iframe-page">
+    	<header class="mui-bar mui-bar-nav">
+    	    <a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+    	    <h1 class="mui-title">导航</h1>
+    	</header>
+    	<iframe src=""></iframe>
+    </div>
+    <script src="../../js/mui.min.js"></script>
+    <script src="../../js/plugin/jquery2.1.min.js"></script>
+    <script src="../../js/common/commonFn.js"></script>
+    <script>
+    	$("#iframe-page iframe").attr('src', window.localStorage.getItem('navigationUrl'));
+    	function back() {
+    		openWindow('../servicePoint/servicePoint.html')
+    	}
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>兑换商品</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/prizeList.css" />
+	</head>
+
+	<body>
+		<div id="prize-list">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">商品兑换</h1>
+			</header>
+			<div class="product-list">
+				<div class="product-item" v-for="(product, p) in list" v-if="list.length>0" :productId="product.id" :price="product.listMoney">
+					<img :src="fileUrl + product.homeFilePath" alt="" />
+					<div class="name mui-ellipsis" v-text="product.title"></div>
+					<div class="font-26">
+						<span v-text="product.type"></span>
+						<span v-if="product.isDelivery=='false'" class="color-red" style="padding:0 5px;border: 1px solid orangered;margin-left: 10px; border-radius: 3px;">{{product.isDelivery=='false'? '包邮' : ''}}</span>
+					</div>
+					<div class="color-red price">￥<span v-text="product.listMoney"></span></div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/plugin/loading.js"></script>
+		<script src="js/prizeList.js"></script>
+	</body>
+
+</html>

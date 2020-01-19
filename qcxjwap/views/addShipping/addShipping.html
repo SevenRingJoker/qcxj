@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>收货地址</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui-pciker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="css/addShipping.css" />
+	</head>
+
+	<body style="background: white;">
+		<div id="addShipping">
+
+			<img src="../order/imgs/guanggaowei.png" style="width: 100%;">
+			<div class="goBack" onclick="goback()">
+				<span class="iconfont icon-fanhui1"></span>
+			</div>
+
+			<!-- 	<header class="mui-bar mui-bar-nav">
+			    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			    <h1 class="mui-title">{{titleText}}</h1>
+			</header> -->
+			<!-- <div class="title">{{titleText}}</div> -->
+			<!-- <div class="category-title"></div> -->
+			<div class="address-info">
+				<div class="flex jsb info-item ai">
+					<div class="item-key">收货人</div>
+					<input class="item-value" type="text" placeholder="请输入收货联系人" v-model="userName" />
+				</div>
+				<div class="flex jsb info-item ai">
+					<div class="item-key">联系电话</div>
+					<input class="item-value" type="text" placeholder="请输入联系电话" v-model="phone" />
+				</div>
+				<div class="flex jsb info-item ai">
+					<div class="item-key">所在区县</div>
+					<div class="item-value" id="city">{{province}}{{city}}{{area}}</div>
+				</div>
+
+				<div class="flex jsb info-item ai">
+					<div class="item-key">详细地址</div>
+					<input class="item-value" type="text" placeholder="请输入详细地址" v-model="address" />
+				</div>
+				<div class="flex jsb info-item ai">
+					<div class="item-key">设为默认地址</div>
+					<div class="mui-switch mui-switch-mini" id="mySwitch">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+			</div>
+			<div class="btns">
+				<div class="save-btn">提交</div>
+				<div class="del-btn" v-if="getQueryString('id')">删除</div>
+			</div>
+			
+			<nav class="mui-bar mui-bar-tab" style="background: #efeff4;">
+				<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">体验与分享</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+					<span class="mui-icon iconfont icon-kefu1"></span>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+			
+		</div>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/mui.picker.min.js"></script>
+		<script src="../../js/city.data-3.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/addShipping.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,75 @@
+#signIn input[type='file'] {
+  opacity: 0;
+}
+#signIn .content {
+  border: none;
+  border-bottom: 1px solid #ededed;
+  font-size: 0.28rem;
+  margin: 2%;
+  border: 1px solid #aaa9a9;
+  width: 96%;
+  border-radius: 20px;
+}
+#signIn .imgs-area {
+  padding: 0.2rem 0 0.2rem 0.3rem;
+  flex-wrap: wrap;
+}
+#signIn .imgs-area .pic-box {
+  position: relative;
+  width: 25%;
+  margin-bottom: 0.3rem;
+  margin-right: 0.3rem;
+}
+#signIn .imgs-area .pic-box img,
+#signIn .imgs-area .pic-box vedio {
+  display: block;
+  width: 100%;
+}
+#signIn .imgs-area .pic-box i {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  background: red;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 100%;
+  font-size: 12px;
+}
+#signIn .imgs-area .add-btn {
+  position: relative;
+}
+#signIn .video-box {
+  position: relative;
+  width: 50%;
+  margin-left: 0.5rem;
+}
+#signIn .video-box video {
+  display: block;
+  width: 100%;
+}
+#signIn .video-box i {
+  position: absolute;
+  right: -0.1rem;
+  top: -0.2rem;
+  color: #fff;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: red;
+  text-align: center;
+  line-height: 0.5rem;
+  border-radius: 100%;
+  z-index: 1000;
+}
+.btns {
+  white: 100%;
+  padding: 10px;
+}
+.btns button {
+  background: #ceac78;
+  color: white;
+  padding: 7px 1.25rem;
+  /*float: right;*/
+}

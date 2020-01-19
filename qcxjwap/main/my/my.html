@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" href="my.css" />
+		<style>
+			p {
+				margin: 0;
+			}
+			
+			.center {
+				text-align: center;
+			}
+			
+			.path2>div {
+				width: 25%;
+				text-align: center;
+			}
+			
+			.path2 img {
+				width: 35px;
+				height: 35px;
+			}
+			
+			.mui-icon-loop {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				color: white;
+				z-index: 100;
+			}
+			
+			.shuaxin {
+				font-size: 1.25em !important;
+				color: white !important;
+				right: 0;
+				top: 0;
+			}
+			
+			.shezhi {
+				font-size: 1.25em !important;
+				color: white !important;
+				left: 0;
+				top: 0;
+			}
+			
+			/* body {
+				background: #efeff4
+			} */
+		</style>
+	</head>
+
+	<body>
+		<!--<div class="head">
+			<span class="iconfont icon-shezhi" onclick="parent.location.href='/BaTiFei/setting?userId='+user.id"></span>
+			<span class="center">我的</span>
+		</div>-->
+		<div id="my-integral">
+			<div class="ub ub-pc pa_a_05 color_white z999 pr">
+				<a>
+					<i v-if="getQueryString('channel')=='hotProduct'" class="pa ma_l_05 shezhi ma_t_05 mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></i>
+					<i v-else onclick="toSetup()" class="pa iconfont icon-shezhi shezhi ma_l_05 ma_t_05 color_white"></i>
+				</a>
+				<div class="">个人中心</div>
+				<!--<i class="pa iconfont icon-shuaxin shuaxin ma_r_05 ma_t_05 color_white" onclick="refresh()"></i>-->
+				<i v-if="getQueryString('channel')==null" class="pa iconfont icon-liuyan shuaxin ma_r_05 ma_t_05 color_white"
+				 onclick="refresh()"></i>
+				<span class="pa historyCount" v-if="getQueryString('channel')==null&&historyMsgCount>0" v-text="historyMsgCount"></span>
+			</div>
+			<div class="headBg"></div>
+			<div class="path1">
+				<div v-if="login" id="visitingCard">
+					<div class="visitingCard">
+						<img id="imgPath" :src="info.imgPath!=null?fileUrl+info.imgPath:'../association/imgs/logo.png'" alt="" onclick="userMsg()">
+						<div class="level">
+							<p id="userName" class="mui-ellipsis" v-text="info.userName"></p>
+							<p id="tel" class="mui-ellipsis">{{info.phone}}</p>
+							<span id="singIn" onclick="grade()">
+								<span id="level" v-text="info.memberName == '未激活' ? '会员注册' : info.memberName"></span>
+							</span>
+						</div>
+					</div>
+
+					<div class="money">
+						<div v-if="getQueryString('channel')==null" onclick="profit()">
+							<p id="earnings" v-text="info.money==null?0:info.money"></p>
+							<p>本月分红</p>
+						</div>
+						<div onclick="myintegral()">
+							<p id="money" v-text="info.integral==null?0:info.integral"></p>
+							<p>积分</p>
+						</div>
+						<div onclick="coupon()">
+							<p id="acer" v-text="info.conversion==null?0:info.conversion"></p>
+							<p>抵扣券</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="ma_l_1" v-else>
+					<a onclick="openWindow('../../views/login/login.html')" class="pa_tb_03 ma_r_1 color-000" style="font-size: 1.5rem;">登录</a>
+					<a onclick='openWindow("../../views/register/register.html")' class="pa_tb_03 color-000" style="font-size: 1.5rem;">注册</a>
+				</div>
+
+				<!-- <span v-if='vipCode==true&&getQueryString("channel")==null' class="upLevel" onclick="vipCode()" style="top: 50px;background: #1E90FF;">VIP码</span> -->
+
+			</div>
+
+			<div class="path3">
+				<!-- <div class="path3-1">
+					<p>服务</p>
+				</div> -->
+				<div class="path2">
+					<div v-if="getQueryString('channel')==null" onclick="shoppingCar()">
+						<span class="iconfont icon-fuwulan-gouwuche"></span>
+						<p>购物车</p>
+					</div>
+
+					<div onclick="orderList()">
+						<span class="iconfont icon-fuwulan-dingdan"></span>
+						<p>订单</p>
+					</div>
+
+					<div onclick="myAddress()">
+						<span class="iconfont icon-fuwulan-shouhuodizhi"></span>
+						<p>收货地址</p>
+					</div>
+
+					<div v-if="getQueryString('channel')==null" onclick="taskList()">
+						<span class="iconfont icon-fuwulan-renwuhuodong"></span>
+						<p>任务活动</p>
+					</div>
+
+					<div v-if="getQueryString('channel')==null" onclick="openWindow('../../views/welfare/welfare.html')">
+						<span class="iconfont icon-fuwulan-fubao"></span>
+						<p>福包</p>
+					</div>
+
+					<div v-if="getQueryString('channel')==null && info.integral>0" onclick="donation()">
+						<span class="iconfont icon-jifen"></span>
+						<p>积分转赠</p>
+					</div>
+
+					<div v-if="getQueryString('channel')==null" onclick="coterie()">
+						<span class="iconfont icon-fuwulan-tongchengjiuyou"></span>
+						<p>附近酒友</p>
+					</div>
+
+					<div v-if="getQueryString('channel')==null" onclick="servicePoint()">
+						<span class="iconfont icon-fuwulan-tongchengpaotui"></span>
+						<p>同城速配</p>
+					</div>
+					<!-- 
+					<div v-if="getQueryString('channel')==null" onclick="about()">
+						<img src="imgs/wenhua.png" alt="">
+						<p>企业活动</p>
+					</div> -->
+				</div>
+
+				<div class="path2">
+					<div onclick="myTeam()">
+						<span class="iconfont icon-fuwulan-tuandui"></span>
+						<p>团队</p>
+					</div>
+
+					<div onclick="myPerformance()">
+						<span class="iconfont icon-fuwulan-yeji"></span>
+						<p>业绩</p>
+					</div>
+					<div onclick="teamOrderList()">
+						<span class="iconfont icon-fuwulan-tuanduidingdan"></span>
+						<p>团队订单</p>
+					</div>
+
+					<div v-if="getQueryString('channel')==null" onclick="poster()">
+						<span class="iconfont icon-fuwulan-tuiguanghaibao"></span>
+						<p>推广海报</p>
+					</div>
+					<div v-if="getQueryString('channel')==null" onclick="material()">
+						<span class="iconfont icon-fuwulan-tuiguangsucai"></span>
+						<p>推广素材</p>
+					</div>
+
+
+<!--					<div v-if="getQueryString('channel')==null && info.memberName != '未激活'" onclick="dynamic()">-->
+<!--						<span class="iconfont icon-fuwulan-tiyanfenxiang"></span>-->
+<!--						<p>体验与分享</p>-->
+<!--					</div>-->
+
+					<div v-if="getQueryString('channel')==null && info.memberName != '未激活'" onclick="dynamicManage()">
+						<span class="iconfont icon-fuwulan-liuyanguanli"></span>
+						<p>留言管理</p>
+					</div>
+				</div>
+
+			</div>
+			<!--<div class="category-title" style="height: 10px; background: #ededed;"></div>-->
+			<div class="path3">
+				<div class="path3-1">
+					<img id="noticeTitleFilePath" src="" alt="">
+					<span class="iconfont icon-gengduo-hengxiang"></span>
+				</div>
+				<div class="orderOption">
+					<div class="orderOptionList" v-for="(notictType,index) in notictTypeList" :key="index" @click="optionChange(index)">
+						<!-- <span class="orderOptionListNumber" :style="{backgroundColor:optionIn==index?'#f70000':'#a6a6ab'}"> -->
+							<div class="orderOptionListTextBox">
+								<div class="orderOptionListText" :style="{color:optionIn==index?'#f70000':'#a6a6ab'}">
+									{{ notictType.type }}
+								</div>
+							</div>
+						</span>
+					</div>
+				</div>
+				<!-- <div class="noticeType">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="height: 1.6rem;">
+						<div class="mui-scroll" style="min-width: 100%; height: 1.6rem;">
+							<div class="haeder-tab flex ai">
+								
+								<div :class="{'active': i==0}" v-for="(notictType, i) in notictTypeList" class="status"><span class="statusText">{{notictType.type}}</span></div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<ul class="mui-table-view" id="noticeList">
+					<li class="mui-table-view-cell mui-media notice-item" v-if="noticeList.length>0" v-for="(item, i) in noticeList"
+					 key="i" :noticeId="item.id">
+						<img v-if="item.filePath!=null&&item.filePath!=''" :src="fileUrl+item.filePath" alt="">
+						<img v-else src="../association/imgs/logo.png" alt="">
+						<div>
+							<p class="notice_title">{{item.title}}</p>
+							<p class="notice_homeContent">{{item.homeContent}}</p>
+						</div>
+					</li>
+				</ul>
+				<p style="text-align: center;padding: 10px;font-size: 16px;color: #2E2D3C;" class="more-btn">查看更多</p>
+			</div>
+
+			<!--<div class="path3">
+				<div class="path3-1">
+					<p>转发任务</p>
+				</div>
+				<ul class="mui-table-view" id="noticeList">
+					<li class="mui-table-view-cell mui-media">
+						<p>说明：转发指定的内容到微信朋友圈，并截图上传，获取积分。更多内容请点击 "更多内容" 按钮！</p>
+
+					</li>
+				</ul>
+				<div class="flex jsb">
+					<p style="text-align: center;padding: 10px;font-size: 16px;color: #2E2D3C;flex: 1;text-align: center;" onclick="taskList()">更多内容</p>
+				</div>
+			</div>-->
+
+			<div style="height: 100px;"></div>
+			<div id="self-center" v-if="getQueryString('channel') != 'hotProduct'">
+				<nav class="mui-bar mui-bar-tab">
+					<a class="mui-tab-item" onclick="openWindow('../index/index.html')">
+						<span class="mui-icon iconfont icon-huodong"></span>
+						<span class="mui-tab-label">活动</span>
+					</a>
+					<a class="mui-tab-item agent-enter" onclick="openWindow('../data/data.html')" style="display: none;">
+						<span class="mui-icon iconfont icon-tuandui1"></span>
+						<span class="mui-tab-label">团队</span>
+					</a>
+					<a class="mui-tab-item" onclick="openWindow('../association/association.html')">
+						<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+						<span class="mui-tab-label">体验与分享</span>
+					</a>
+					<a class="mui-tab-item" onclick="openWindow('../medicine/medicine.html')">
+						<span class="mui-icon iconfont icon-kefu1"></span>
+						<span class="mui-tab-label">客服</span>
+					</a>
+					<a class="mui-tab-item mui-active" onclick="openWindow('../my/my.html')">
+						<span class="mui-icon iconfont icon-wode"></span>
+						<span class="mui-tab-label">我的</span>
+					</a>
+				</nav>
+			</div>
+		</div>
+
+		<!--
+		<div id="phonePopup" class="phonePopup">
+			<div>
+				<span id="closePhonePopup" class="iconfont icon-guanbi closePhonePopup"></span>
+				<h2>完善信息</h2>
+				<div>
+					<p>电话号码</p>
+					<input id="phonePopup-Phone" type="number" placeholder="请输入" />
+				</div>
+				<div>
+					<p>验证码</p>
+					<input type="number" placeholder="请输入" />
+					<button type="button" id="phonePopup-GetAuth" class="mui-btn mui-btn-success">获取</button>
+				</div>
+				<button id="phonePopup-Save" type="button" style="margin-top: 20px;" class="mui-btn mui-btn-danger">保存</button>
+			</div>
+		</div>-->
+
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script src="../../js/plugin/vue.min.js"></script>
+	<script src="../../js/mui.pullToRefresh.js"></script>
+	<script src="../../js/mui.pullToRefresh.material.js"></script>
+	<script src="../../js/plugin/loading.js"></script>
+	<script type="text/javascript" src="js/my.js"></script>
+
+</html>

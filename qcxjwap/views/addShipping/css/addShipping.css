@@ -1,0 +1,60 @@
+#addShipping .title {
+  padding: 0.2rem;
+  font-size: 0.36rem;
+  font-weight: bold;
+}
+#addShipping .address-info .info-item {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.38rem;
+  border-bottom: 1px solid #F2F2F2;
+}
+#addShipping .address-info .info-item .item-key {
+  flex: 2;
+  font-size: 0.3rem;
+  color: #72706f;
+}
+#addShipping .address-info .info-item .item-value {
+  flex: 6;
+  font-size: 0.28rem;
+}
+#addShipping .address-info .info-item input {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  border: none;
+  font-size: 0.28rem;
+  height: auto;
+}
+.mui-switch {
+  background: -webkit-linear-gradient(to right, #FFFBF8, #FEEFD6);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(to right, #FFFBF8, #FEEFD6);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(to right, #FFFBF8, #FEEFD6);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #FFFBF8, #FEEFD6);
+  border: none;
+}
+.mui-switch .mui-switch-handle {
+  background: #DA251D;
+}
+.btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+}
+.btns div {
+  width: 40%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  text-align: center;
+  font-size: 0.32rem;
+  color: #fff;
+  border-radius: 0.2rem;
+}
+.btns .save-btn {
+  background: #da251d;
+}
+.btns .del-btn {
+  background: #ceac78;
+}

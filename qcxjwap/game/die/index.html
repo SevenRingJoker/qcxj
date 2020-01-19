@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/require.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<style type="text/css">
+			body {
+				margin: 0px;
+				padding: 0px;
+				overflow: hidden;
+				width: 100%;
+			}
+			
+			.goBack {
+				position: fixed;
+				left: 10px;
+				top: 10px;
+				background: #53b03e;
+				border-radius: 30px;
+				width: 50px;
+				height: 30px;
+				text-align: right;
+				z-index: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.goBack a {
+				color: white;
+				line-height: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-action-back goBack">
+			<a class="mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+		</div>
+		<div style="text-align:center;">
+			<canvas id="linkScreen" width="1366" height="621" style="width: 1366px; height: 621px;">
+			
+		</canvas>
+		</div>
+	</body>
+
+</html>

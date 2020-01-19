@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" type="text/css" href="profit.css" />
+		<title>我的分红</title>
+		<style type="text/css">
+			html,
+			body {
+				height: 100%;
+			}
+			
+			.fanhui {
+				font-size: 1.25em !important;
+				color: white;
+				left: 0;
+				top: 0;
+			}
+			
+			.tuichu {
+				bottom: 0;
+			}
+			
+			.color_fff {
+				color: #fff !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="pr h100" id="my-integral">
+			<div class="pf w100 z999 bg_333">
+				<div class="ub ub-pc pa_a_05 color_white ">
+					<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+					<div class="">我的分红</div>
+				</div>
+			</div>
+			<div class="pa_t_23 show-box">
+				<div class="pa_lr_1 pa_tb_05">
+					<div class="bg_007DDB bor_ra2 pa_a_2 tx-c color_fff">
+						<h1>{{integral==null?0:integral}}</h1>
+						<div class="font_26 ma_t_1">积分</div>
+					</div>
+				</div>
+			</div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="pa_lr_05">
+						<div class="bg_fff pa_lr_05 bor_ra2">
+							<div class="pa_tb_05 ma_b_05 bor_b_ccc" v-if="list.length>0" v-for="(item, i) in list" key="i">
+								<div class="ub">
+									<div class="ub-f1 color_orangered">积分：{{item.integral}}</div>
+									<div class="ub-f1">用户：{{item.userName}}</div>
+								</div>
+								<div class="ma_t_05 font_24 color_8f8f94">说明：{{item.expensesUserName}}</div>
+								<div class="tx-r ma_t_05 font_24 color_8f8f94">创建时间：{{item.createDate}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<div class="pf w100 tuichu" style="z-index: 1000;">
+				<a href="###" class="bt db tx-c pa_tb_08 color_fff bg_orangered">提取</a>
+			</div>-->
+		</div>
+
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript"></script>
+	<script src="../../js/plugin/vue.min.js"></script>
+	<script src="../../js/mui.pullToRefresh.js"></script>
+	<script src="../../js/mui.pullToRefresh.material.js"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script src="js/profit.js" type="text/javascript"></script>
+
+</html>

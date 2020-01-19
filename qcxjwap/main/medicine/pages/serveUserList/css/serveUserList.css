@@ -1,0 +1,32 @@
+#serveUser-list .banner-pic {
+  display: block;
+  width: 100%;
+}
+#serveUser-list .service-user-list .service-users {
+  padding: 0.2rem;
+  border-bottom: 1px solid #ededed;
+}
+#serveUser-list .service-user-list .service-users .serviceUser-header {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.3rem;
+}
+#serveUser-list .service-user-list .service-users .serviceUser-header img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+#serveUser-list .service-user-list .service-users .unread-count {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: orangered;
+  color: #fff;
+  line-height: 0.5rem;
+  text-align: center;
+  font-size: 0.28rem;
+}
+#serveUser-list .service-user-list .service-users .serviceUser-info {
+  width: 75%;
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>服务网点</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="css/servicePoint.css" />
+	</head>
+
+	<body style="background: white;">
+		<div id="service-point">
+	<!-- 		<header class="mui-bar mui-bar-nav">
+				<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+				<h1 class="mui-title">服务网点</h1>
+			</header> -->
+			<div class="qcxj_head">
+				<div class="qcxj_headBox">
+					<div class="qcxj_headBoxView">
+						<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">
+						<span class="qcxj_headBoxViewText">服务网点</span>
+					</div>
+				</div>
+			</div>
+			<div class="qcxj_headSwitch"></div>
+			<div class="goBack" onclick="goback()">
+				<div class="backImgClass">
+					<img  src="../../img/back.png" alt="">
+				</div>
+				<!--				<span class="iconfont icon-fanhui1"></span>-->
+			</div>
+			<img id="headImg" class="banner-pic" src="imgs/servicePoint.jpg" style="display: block;width: 100%;height: 160px;" />
+			<!--<div id="map"></div>-->
+<!--			<div class="mui-scroll-wrapper">-->
+<!--				<div class="mui-scroll">-->
+			<div>
+				<div>
+					<div>
+						<div class="service-list">
+							<div class="service-item flex" v-if="list.length>0" v-for="(item, i) in list" key="i" :item="JSON.stringify(item)">
+								<img :src="item.homeFilePath!=null?fileUrl+item.homeFilePath:'../../main/association/imgs/logo.png'" alt="" />
+								<div class="service-info">
+									<div class="service-shop-name">{{item.name}}</div>
+									<p class="mui-ellipsis-2">服务：{{item.content}}</p>
+									<p>距离：{{distances[i]}}</p>
+									<p class="mui-ellipsis-2">地址：{{item.address}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="map"></div>
+		<input type="hidden" id="lng"/>
+		<input type="hidden" id="lat"/>
+		
+		<nav class="mui-bar mui-bar-tab" style="background: #efeff4;">
+			<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+				<span class="mui-icon iconfont icon-huodong"></span>
+				<span class="mui-tab-label">活动</span>
+			</a>
+			<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+				<span class="mui-icon iconfont icon-tuandui1"></span>
+				<span class="mui-tab-label">团队</span>
+			</a>
+			<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+				<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+				<span class="mui-tab-label">体验与分享</span>
+			</a>
+			<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+				<span class="mui-icon iconfont icon-kefu1"></span>
+				<span class="mui-tab-label">客服</span>
+			</a>
+			<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5QEcaoZOqMSYxyjGTWch3z9T68EFVAyV"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.js"></script>
+		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+		<script src="../userMess/js/newAddress.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/transformation.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/servicePoint.js"></script>
+	</body>
+
+</html>

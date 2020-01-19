@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common/ui-box.css" />
+		<link rel="stylesheet" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="../myTeam/myTeam.css" />
+		<link rel="stylesheet" type="text/css" href="myTeam2.css"/>
+		<title>我的团队</title>
+		<style type="text/css">
+			html,
+			body {
+				height: 100%;
+			}
+
+			.fanhui {
+				font-size: 1.25em !important;
+				color: white;
+				left: 0;
+				top: 0;
+			}
+
+			.bg_007DDB {
+				background-color: #007DDB;
+			}
+
+			.color_52b4ac {
+				color: #52b4ac;
+			}
+
+			.color_palevioletred {
+				color: palevioletred;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="pr h100" id="my-integral">
+			<div class="pf w100 z999 bg_333">
+				<div class="ub ub-pc pa_a_05 color_white ">
+					<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+					<div class="">我的团队</div>
+				</div>
+			</div>
+			<div class="pa_t_23">
+				<div class="pa_tb_05 pa_lr_1">
+					<div class="headMsg bg_007DDB pa_tb_1 tx-c bor_ra2 color-fff">
+						<div class="font_50 ma_b_1 pa_b_1 bor_b_fff ma_lr_1 font_w">{{userName}}</div>
+						<div class="">
+							<div class="font_48 font_w">{{directUser.length + indirectUser.length}}</div>
+							<div class="font_28 ma_t_05">总团队人数</div>
+						</div>
+						<div class="ub ub-pc ma_t_1">
+							<div class="ub-f1">
+								<div class="font_48 font_w">{{directUser.length}}</div>
+								<div class="font_28 ma_t_05">直推人数</div>
+							</div>
+							<div class="ub-f1">
+								<div class="font_48 font_w">{{indirectUser.length}}</div>
+								<div class="font_28 ma_t_05">间接人数</div>
+							</div>
+						</div>
+						<div v-if="user!=null&&user.memberId!=null&&user.isMember!=null&&user.isMember=='true'"></div>
+						<div v-else id="activateUser" class="activateUser"><span>激活</span></div>
+						<div id="chat" class="chat"><span>聊天</span></div>
+					</div>
+
+				</div>
+				<div class="activate">
+					<div class="vip_Code">
+						<p>VIP激活码</p>
+						<input id="vipCode" type="text" placeholder="请输入VIP激活码"/>
+					</div>
+					<button id="affirm" type="button" class="mui-btn mui-btn-success">确认</button>
+					<button id="close" type="button" class="mui-btn mui-btn-danger">关闭</button>
+					<div class="tip">
+						<p>温馨提示：</p>
+						<p>请到配送VIP码，复制激活码，粘贴到输入框，</p>
+						<p>点击确认，激活用户账号!</p>
+					</div>
+				</div>
+				
+				<div class="pa_lr_05">
+					<div class="bg_fff bor_ra2 pa_lr_05">
+						<a @click="myTeam2(item.phone,item.userName,item.id)" class="pa_tb_05 bor_b_ccc db"
+						 v-if="directUser.length>0" v-for="(item, i) in directUser" key="i">
+							<div class="ub ub-ac">
+								<div class="ub-f1 color_52b4ac font_30">{{item.userName}}</div>
+								<div class="ub-f1 tx-c font_26">{{item.memberName}}</div>
+								<div class="ub-f1 tx-r font_26 color_coral">积分：{{item.integral == null ? 0 : item.integral}}</div>
+							</div>
+							<div class="ma_t_05 ub ub-ac font_26">
+								<div class="ub-f1 color_palevioletred">团队人数：{{item.directSize}}</div>
+								<div class="ub-f1">创建时间：{{item.createDate.split(" ")[0]}}</div>
+							</div>
+						</a>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/plugin/jquery2.1.min.js" type="text/javascript"></script>
+	<script src="../../js/plugin/vue.min.js"></script>
+	<script src="../../js/common/commonFn.js"></script>
+	<script src="../../js/plugin/loading.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/myTeam2.js"></script>
+</html>

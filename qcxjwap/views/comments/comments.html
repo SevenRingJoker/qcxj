@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>体验与分享-评论-点赞-分享</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/image.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/comments.css" />
+<!--		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />-->
+		<style>
+			.qcxj_head{
+				position:fixed;
+				background-color:#d41518;
+				height: 50px;
+				width: 100%;
+				z-index: 111111;
+			}
+
+			.qcxj_headBox{
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+
+			.qcxj_headBoxView{
+				position: absolute;
+				bottom: 10px;
+				left: 20px;
+				display: flex;
+				align-items: center;
+			}
+
+			.qcxj_headBoxViewImg{
+				width:20px;
+				height: 20px;
+			}
+
+			.qcxj_headBoxViewText{
+				color: #FFFFFF;
+				font-size: 18px;
+				margin-left: 20px;
+			}
+
+			.backImgClass{
+				position: relative;
+				height: 100%;
+				width: 100%;
+			}
+
+			.backImgClass>img{
+				position: absolute;
+				transform: translateY(-50%);
+				top:50%;
+				right:4px;
+				width: 25px;
+				height: 50px;
+			}
+
+			.qcxj_headSwitch{
+				height: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+	<div class="qcxj_head">
+		<div class="qcxj_headBox">
+			<div class="qcxj_headBoxView">
+				<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">
+				<span class="qcxj_headBoxViewText">体验分享-评论-点赞-分享</span>
+			</div>
+		</div>
+	</div>
+	<div class="qcxj_headSwitch"></div>
+		<div id="comments-box">
+			<img :src="fileUrl+picture.associationFilePath" alt="" style="width: 100%;">
+			<div class="msg-list" v-if="item">
+				<div class='head'>
+					<img :src="fileUrl+item.userHead!=null&&item.userHead!=''?item.userHead:'../../main/association/imgs/logo.png'" />
+					<div style="width: auto;">
+						<span v-text="item.userName"></span>
+						<div>
+							<span v-text="item.createDate"></span>
+						</div>
+					</div>
+				</div>
+				<!--内容-->
+				<div class="font-30" v-text="item.content"></div>
+				<!--内容图-->
+				<div class='conImg' v-if="item.filePath&&item.filePath.length>0">
+					<!--<img :src="fileUrl + pic" v-for="(pic, p) in item.filePath.split('|')" key="p" data-preview-src="" :data-preview-group="1" />-->
+					<img v-if="getSuffix(pic) == 'jpg' || getSuffix(pic) == 'jpeg' || getSuffix(pic) == 'png' || getSuffix(pic) == 'gif'"
+					 :src="fileUrl + pic" v-for="(pic, p) in item.filePath.split('|')" key="p" data-preview-src="" :data-preview-group="1" />
+					<video poster="../../main/association/imgs/logo.png" v-if="getSuffix(pic) == 'mp4' || getSuffix(pic) == 'flv' || getSuffix(pic) == 'avi' || getSuffix(pic) == 'MOV'"
+					 :src="fileUrl + pic" v-for="(pic, p) in item.filePath.split('|')" key="p" controls="controls" style="display: block; width: 100%; height: 4rem;"></video>
+				</div>
+			</div>
+			<div class="category-title" v-if="item">
+				<div><i class="iconfont icon-liuyan color-blue" style="margin-right: .1rem;"></i>全部评论</div>
+			</div>
+			<div class="comment-list" style="padding-bottom: 1.2rem;">
+				<div class="comment-item" v-if="list.length>0" v-for="(item, i) in listChange">
+					<div class="comment-user head">
+						<img :src="item.user.imgPath!=null&&item.user.imgPath!=''?fileUrl+item.user.imgPath:'../../main/association/imgs/logo.png'" />
+						<div style="width: auto;">
+							<span v-text="item.userName" style="font-weight: 500;"></span>
+							<div>
+								<span v-text="item.createDate"></span>
+							</div>
+						</div>
+					</div>
+					<div class="comment-content">
+						<div>{{item.content}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom-textarea">
+				<textarea id="pl" v-model="content" rows="1" cols="" placeholder="评论内容..."></textarea>
+				<div class="commont-btn">评论</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.js"></script>
+		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/zoom.js"></script>
+		<script src="../../js/previewimage.js"></script>
+		<script src="../../js/downloadImage.js"></script>
+		<script src="../../js/plugin/loading.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/comments.js"></script>
+	</body>
+
+</html>

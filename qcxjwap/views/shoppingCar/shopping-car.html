@@ -1,0 +1,118 @@
+<!doctype html>
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>购物车</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/pull.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="css/shopping-car.css" />
+	</head>
+
+	<body style="background: white;">
+		<div id="shopping-car">
+			<!-- <header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">购物车</h1>
+			</header> -->
+			<!--<div class="qcxj_head">-->
+				<!--<div class="qcxj_headBox">-->
+					<!--<div class="qcxj_headBoxView">-->
+						<!--<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">-->
+						<!--<span class="qcxj_headBoxViewText">购物车</span>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			<div class="goBack" onclick="goback()">
+				<div class="backImgClass">
+					<img  src="../../img/back.png" alt="">
+				</div>
+				<!--				<span class="iconfont icon-fanhui1"></span>-->
+			</div>
+			<!--<div class="qcxj_headSwitch"></div>-->
+			<div class="edit-bar flex jsb ai">
+				<div class="mui-input-row mui-checkbox mui-left">
+					<label>全选</label>
+					<input type="checkbox" :checked="allBol">
+				</div>
+				<i class="iconfont icon-shanchu color-red delete-btn"></i>
+			</div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="order-list">
+						<div class="order-item flex ai" v-if="lists.length>0" v-for="(order, o) in lists" :key="o">
+							<div class="checkBox-btn">
+								<div class="mui-input-row mui-checkbox">
+									<input type="checkbox" :indexNo="o" :checked="order.checked">
+								</div>
+							</div>
+							<div class="order-main flex ai">
+								<img :src="fileUrl + order.filePath" alt="" />
+								<div class="oreder-intro">
+									<div class="color-111 font-32">{{order.productTitle}}</div>
+									<div class="color-169 font-24">{{order.productSubTitle}}</div>
+									<div class="color-169 font-24">是否包邮：<span class="color-red">{{order.receivingType == '包邮' ? '包邮' : '不包邮'}}</span></div>
+									<div class="color-blue font-24" v-if="order.passBuyCount==0">已被限购</span>
+									</div>
+									<div class="flex ai jsb">
+										<div class="color-red">￥{{order.price*order.count}} <span v-if="order.price<order.original" class="color-999"
+											 style="margin-left: 5px;text-decoration: line-through;">￥{{order.original*order.count}}</span></div>
+										<div>
+											<div class="mui-numbox mui-pull-right" :class="'shopCarCount'+order.id" data-numbox-min="1" style="border: none;">
+												<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+												<input class="mui-input-numbox" type="number" :indexNo="o" :value="order.count" />
+												<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="button-bar flex jsb ai" style="background: white;">
+				<div>合计：<span class="color-red">￥ {{totalMoney}}</span></div>
+				<div class="jiesuan-btn">结算</div>
+			</div>
+			<nav class="mui-bar mui-bar-tab" style="background: #efeff4;">
+				<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">体验与分享</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+					<span class="mui-icon iconfont icon-kefu1"></span>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+		</div>
+	
+		
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/mui.pullToRefresh.js"></script>
+		<script src="../../js/mui.pullToRefresh.material.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/shopping-car.js"></script>
+	</body>
+
+</html>

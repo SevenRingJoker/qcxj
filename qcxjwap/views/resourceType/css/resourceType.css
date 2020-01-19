@@ -1,0 +1,75 @@
+.mui-slider-indicator .mui-indicator {
+	box-shadow: none;
+}
+
+.mui-slider-indicator .mui-active.mui-indicator {
+	background: orangered;
+}
+
+img {
+	border-radius: 0 0 10px 10px;
+}
+
+body {
+	background-image: url('../image/backk.gif');
+}
+
+.resourceTypeList {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 20px;
+	flex-flow: wrap;
+}
+
+.resourceTypeList>div {
+	width: 23%;
+	text-align: center;
+	background-image: url('../image/tmm.png');
+	margin: 1%;
+	padding: 10px 5px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+}
+
+.resourceTypeList img {
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+p {
+	margin: 0;
+	color: white;
+	font-size: 13px;
+}
+
+.foot {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+background: white;
+	border-radius: 10px 10px 0 0;
+	
+}
+
+.foot div {
+	width: 33.2%;
+	text-align: center;
+	line-height: 40px;
+	background: red;
+	color: white;
+}
+.foot div:first-child{
+	border-radius: 10px 0 0 0;
+}
+.foot div:last-child{
+	border-radius: 0 10px 0 0;
+}
+

@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../order/css/order.css" />
+		<link rel="stylesheet" href="css/orderDetails.css" />
+	</head>
+
+	<body style="background-color: white;">
+		<div id="order">
+			<!-- <div class="mui-bar">
+				<a class=" pa mui-action-back mui-icon mui-icon-left-nav fanhui mui-pull-left ma_l_05 ma_t_05"></a>
+				<span class="mui-title">订单详情</span>
+			</div> -->
+			<!-- 	<div class="head flex">
+				<img src="img/orderDetails.png" />
+				<h1>{{order.status}}</h1>
+			</div> -->
+			<div class="qcxj_head">
+				<div class="qcxj_headBox">
+					<div class="qcxj_headBoxView">
+						<img class="qcxj_headBoxViewImg" src="../../img/quxiao.png" onclick="goback()">
+						<span class="qcxj_headBoxViewText">订单</span>
+					</div>
+				</div>
+			</div>
+			<div class="qcxj_headSwitch"></div>
+			<div class="goBack" onclick="goback()">
+				<div class="backImgClass">
+					<img  src="../../img/back.png" alt="">
+				</div>
+<!--				<span class="iconfont icon-fanhui1"></span>-->
+			</div>
+			<img src="../order/imgs/guanggaowei.png" style="width: 100%;">
+			<div class="address" v-if="order.status!='待支付'">
+				<div>
+					<p class="addressName">
+						<span>{{order.name}}</span>
+						<span>{{order.phone}}</span>
+					</p>
+					<p class="mui-ellipsis-2">{{order.address}}</p>
+				</div>
+				<span id="moreAddress" class="mui-icon mui-icon-arrowright"></span>
+			</div>
+			<div class="product">
+				<img :src="fileUrl+order.productFilePath" />
+				<div class="productData">
+					<p class="title">{{order.productTitle}}</p>
+					<p style="font-size: 14px;">规格：{{order.subProductTitle}}</p>
+					<p class="conversion" v-if='order.payStatus=="抵扣券"'>
+						<span><span class="color-170">抵扣券：</span>{{order.conversion}} </span>
+						<span><span class="color-170"> 数量：</span> {{order.count}}</span>
+					<span></span>
+					<p class="integral" v-if='order.payStatus=="积分"'>
+						<span><span class="color-170">积分：</span>{{order.price}}</span>
+						<span><span class="color-170">数量：</span>{{order.count}}</span>
+						<span></span>
+					</p>
+					<p class="price flex" v-if='order.payStatus=="在线支付"||order.payStatus==null'>
+						<span><span class="color-170">单价</span>￥{{order.price}}</span>
+						<span><span class="color-170">数量：</span> {{order.count}}</span>
+						<span></span>
+					</p>
+					<p class="price flex" v-if='order.payStatus=="福包"'>
+						<span><span class="color-170">福包</span>{{order.welfare}}</span>
+						<span><span class="color-170">数量：</span>{{order.count}}</span>
+						<span></span>
+					</p>
+				</div>
+			</div>
+			<ul class="mui-table-view elseDate color-170" v-if="order.status!='待支付'">
+				<li class="mui-table-view-cell flex" v-if="order.status=='申请退款'">
+					<span>售后状态</span><span>{{order.afterSaleType}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if="order.status=='申请退款'">
+					<span>售后联系电话</span><span>{{order.afterSalePhone}}</span>
+				</li>
+				<!-- 	<li class="mui-table-view-cell flex">
+					<span>收货类型</span><span>{{order.receivingType}}</span>
+				</li> -->
+				<li class="mui-table-view-cell flex">
+					<span>订单号</span><span>{{order.out_trade_no}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if='order.receivingType=="自费物流"'>
+					<span>邮费</span><span>{{order.receivingMoney}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if='order.total>0'>
+					<span>总金额</span><span>￥{{order.total}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if='order.totalConversion>0'>
+					<span>总抵扣券</span><span>{{order.totalConversion}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if='order.totalIntegral>0'>
+					<span>总积分</span><span>￥{{order.totalIntegral}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if='order.totalWelfare>0'>
+					<span>总福包</span><span>{{order.totalWelfare}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if='order.payStatus!=null'>
+					<span>支付方式</span><span>{{order.payStatus}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if='order.logisticsNum!=null' onclick="logisticsDeatils()">
+					<span>物理订单号</span><span>{{order.logisticsNum}}</span>
+				</li>
+				<li class="mui-table-view-cell flex" v-if='order.logisticsCom!=null'>
+					<span>物流公司</span><span>{{order.logisticsCom}}</span>
+				</li>
+			</ul>
+			<div style="height: 100px;"></div>
+			<div class="foot" style="justify-content: flex-end;">
+				<button v-if='order.status=="待收货"' type="button" data-loading-text="订单处理中" data-loading-icon="mui-spinner mui-spinner-custom"
+				 class="takeSuccess mui-btn color-fff" style="background-color: #CEAC78;">确定收货</button>
+				<button v-if='order.payStatus!="奖励商品" && order.status!="待支付" && order.status!="申请退款"' type="button"
+				 data-loading-text="订单处理中" data-loading-icon="mui-spinner mui-spinner-custom" class="afterSale mui-btn color-fff"
+				 style="background-color:rgb(218,37,29);">申请售后</button>
+				<button v-if='order.status=="待支付"' type="button" data-loading-text="订单处理中" data-loading-icon="mui-spinner mui-spinner-custom"
+				 class="buy mui-btn color-fff" style="background-color: #CEAC78;">去支付</button>
+			</div>
+
+			<nav class="mui-bar mui-bar-tab" style="background: #efeff4;">
+				<a class="mui-tab-item" onclick="openWindow('../../main/index/index.html')">
+					<span class="mui-icon iconfont icon-huodong"></span>
+					<span class="mui-tab-label">活动</span>
+				</a>
+				<a class="mui-tab-item agent-enter" onclick="openWindow('../../main/data/data.html')" style="display: none;">
+					<span class="mui-icon iconfont icon-tuandui1"></span>
+					<span class="mui-tab-label">团队</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/association/association.html')">
+					<span class="mui-icon iconfont icon-tiyanfenxiang"></span>
+					<span class="mui-tab-label">体验与分享</span>
+				</a>
+				<a class="mui-tab-item" onclick="openWindow('../../main/medicine/medicine.html')">
+					<span class="mui-icon iconfont icon-kefu1"></span>
+					<span class="mui-tab-label">客服</span>
+				</a>
+				<a class="mui-tab-item mui-active" onclick="openWindow('../../main/my/my.html')">
+					<span class="mui-icon iconfont icon-wode"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="js/orderDetails.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

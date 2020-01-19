@@ -1,0 +1,72 @@
+#service-user-detail {
+  padding: 0 0.2rem;
+}
+#service-user-detail .user-card {
+  padding: 3%;
+  height: 4rem;
+  margin: 0.2rem auto;
+  border-radius: 10px;
+  background: url(../img/mingpianBg.png) no-repeat;
+  background-size: 100% 100%;
+  color: #e49c14;
+  align-items: center;
+}
+#service-user-detail .user-card .gognsi img {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.1rem;
+  border-radius: 100%;
+}
+#service-user-detail .user-card .header {
+  width: 100%;
+}
+#service-user-detail .user-card .header img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-bottom: 0.625rem;
+}
+#service-user-detail .user-card .name {
+  margin-top: 0.3rem;
+  margin-bottom: 0.1rem;
+  font-size: 0.45rem;
+  font-weight: bold;
+}
+#service-user-detail .title-text {
+  padding: 0.2rem 0;
+  font-size: 0.36rem;
+  color: #000;
+  font-weight: bold;
+}
+#service-user-detail .title-text i {
+  color: #000000;
+}
+#service-user-detail .service-intro {
+  padding: 0.2rem;
+  font-size: 0.3rem;
+  border-radius: 5px;
+  background: #ededed;
+}
+#service-user-detail .connect-box {
+  justify-content: space-between;
+}
+#service-user-detail .connect-box a {
+  margin: 0.2rem 0.1rem;
+  max-width: 47%;
+  flex: 1;
+  color: #666;
+  font-size: 0.28rem;
+  text-align: center;
+  height: 60px;
+  background: #ededed;
+  border-radius: 5px;
+  line-height: 60px;
+}
+#service-user-detail .connect-box a i {
+  color: #54d254;
+}
+#service-user-detail .connect-box a.box-shadow {
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+}
