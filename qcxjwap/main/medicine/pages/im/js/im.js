@@ -74,17 +74,17 @@ uploader('#send-pic', PicUploadUrl, function() {
 //mui('.mui-scroll-wrapper').scroll();
 //mui('.mui-scroll-wrapper').scroll().scrollToBottom();
 window.onload = function() {
-	var h = $(window).height() - 50 - $('.mui-bar-nav').outerHeight(true) - $('.bottom-textarea').outerHeight();
+	var h = $(window).height() - $('.mui-bar-nav').outerHeight(true) - $('.bottom-textarea').outerHeight();
 	vm.height = h;
 	vm.top =  $('.mui-bar-nav').outerHeight(true) + 50;
 	$("#bg").css({
 		height: h,
-		top: $('.mui-bar-nav').outerHeight(true) + 50
+		top: 0
 	})
 	console.log(vm.top)
 	$('.mui-scroll-wrapper').css({
 		height: h,
-		top: $('.mui-bar-nav').outerHeight(true) + 50
+		top: 0
 	});
 }
 

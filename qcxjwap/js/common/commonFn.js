@@ -64,10 +64,10 @@ if(mui.os.plus) {
 			if(userInfo.openid != null && userInfo.openid != '') {
 				getUserById(userInfo.id)
 			} else {
-				location.href = baseUrl + '/WxLogin?leadNumber=' + getQueryString("leadNumber") + '&scheme=' + document.location.protocol + '&url=' + thisUrl
+				// location.href = baseUrl + '/WxLogin?leadNumber=' + getQueryString("leadNumber") + '&scheme=' + document.location.protocol + '&url=' + thisUrl
 			}
 		} else {
-			location.href = baseUrl + '/WxLogin?leadNumber=' + getQueryString("leadNumber") + '&scheme=' + document.location.protocol + '&url=' + thisUrl
+			// location.href = baseUrl + '/WxLogin?leadNumber=' + getQueryString("leadNumber") + '&scheme=' + document.location.protocol + '&url=' + thisUrl
 		}
 	}
 }

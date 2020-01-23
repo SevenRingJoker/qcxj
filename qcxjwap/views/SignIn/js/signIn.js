@@ -56,7 +56,8 @@ mui('#signIn').on('tap', '.fabu', function() {
 	}, function(res) {
 		mui.hideLoading();
 		plusToast('发布成功!');
-		goback();;
+		location.reload();
+		// goback();
 	}, function() {
 		ajaxError();
 	})

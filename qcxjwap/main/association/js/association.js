@@ -209,4 +209,3 @@ function praise(msgId, cb, errorFn) {
 		ajaxError();
 	})
 }
-

@@ -41,11 +41,11 @@
 				<div class="productData">
 					<p class="title" style="color: rgb(114,112,111);">{{order.productTitle}}</p>
 					<p>规格：{{order.subProductTitle}}</p>
-					<p class="conversion" v-if='payStatus=="抵扣券"'><span style="color: rgb(114,112,111);">抵扣券：</span>{{order.conversion}}</p>
-					<p class="integral" v-if='payStatus=="积分"'><span style="color: rgb(114,112,111);">积分：</span>{{order.price}}</p>
-					<p class="price" v-if='payStatus=="在线支付"||payStatus==""'><span style="color: rgb(114,112,111);">单价：</span>￥{{order.price}}</p>
-					<p class="welfare" v-if='payStatus=="福包"'><span style="color: rgb(114,112,111);">福包：</span>{{order.welfare}}</p>
 					<div>
+						<p class="conversion" v-if='payStatus=="抵扣券"'><span style="color: rgb(114,112,111);">抵扣券：</span>{{order.conversion}}</p>
+						<p class="integral" v-if='payStatus=="积分"'><span style="color: rgb(114,112,111);">积分：</span>{{order.price}}</p>
+						<p class="price" v-if='payStatus=="在线支付"||payStatus==""'><span style="color: rgb(114,112,111);">单价：</span>￥{{order.price}}</p>
+						<p class="welfare" v-if='payStatus=="福包"'><span style="color: rgb(114,112,111);">福包：</span>{{order.welfare}}</p>
 						<div class="mui-numbox numboxProduct" data-numbox-step='1' data-numbox-min='-1' data-numbox-max='100'>
 							<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
 							<input class="mui-numbox-input" type="number" readonly="" style="padding: 0 !important;" />
@@ -79,7 +79,7 @@
 			<ul class="mui-table-view elseDate">
 				<li class="mui-table-view-cell serviceBranch">
 					<div>
-						<span>自提</span>
+						<span>是否包邮</span>
 						<div class="mui-switch changeServiceBranch" id="changeServiceBranch">
 							<div class="mui-switch-handle"></div>
 						</div>
