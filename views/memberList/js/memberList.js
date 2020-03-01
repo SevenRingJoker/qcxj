@@ -1,12 +1,12 @@
 var vm = new Vue({
-	el: '#member-List',
+	el: '#memberList',
 	data: {
 		memberList: [],
 		fileUrl: fileUrl,
 	},
 	methods:{
-		href:function(id){
-			openWindow('../memberDetails/memberDetails.html?id='+id)
+		goDetails(id){
+			openWindow("../memberNoeDetails/memberNoeDetails.html?id="+id);
 		}
 	}
 })
@@ -17,7 +17,7 @@ getMemberList();
 function getMemberList() {
 	ajaxPost(baseUrl + 'member/getList', {
 		pageNo: 1,
-		pageSize: 999,
+		pageSize:99,
 		isShow: 'true',
 		memberId: userInfo.isMember == 'true' ? userInfo.memberId : null,
 		sort:'joinMoneyAsc',

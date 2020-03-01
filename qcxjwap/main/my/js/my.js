@@ -325,7 +325,7 @@ function joinMember() {
 		}, function(res) {
 			if (res.data.length > 0) {
 				if (res.data.length == 1) {
-					openWindow('../../views/memberDetails/memberDetails.html?id=' + res.data[0].id)
+					openWindow('../../views/memberDetails/memberNoeDetails.html?id=' + res.data[0].id)
 				} else {
 					openWindow('../../views/memberList/memberList.html')
 				}

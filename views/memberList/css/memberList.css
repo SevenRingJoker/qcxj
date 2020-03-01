@@ -1,42 +1,129 @@
-.headImage {
-  width: 100%;
-  height: 2.6rem;
+*{
+	padding: 0px;
+	margin: 0px;
 }
+#memberList{
 
-.product-list {
-	display: flex;
-	background: #f2f2f2;
-	flex-wrap: wrap;
-	padding: 0.2rem 0;
-	color: #666;
 }
-
-.product-list .product-item {
-	width: 48%;
-	margin: 0 1% 2%;
-	background-color: #fff;
-	border-radius: 10px;
-	overflow: hidden;
-}
-
-.product-list .product-item img {
-	display: block;
+#memberList .topHead{
+	height:50px;
+	background: #da251c;
 	width: 100%;
+	padding:15px 10px 0px 10px;
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+}
+.topHead img{
+	width: 20px;
+	height: 20px;
+}
+.topHead span{
+	color: whitesmoke;
+	font-size: 18px	;
+}
+.topHead .left{
+	width: 100px;
+}
+.topHead .right{
+	text-align: right;
+}
+.topHead .right span{
+	font-size: 33px;
+	font-weight: bolder;
+	line-height: 0px;
+}
+.box{
+	margin-top: 50px;
+}
+.box .lunBo{
+	height: 130px;
+}
+.box .lunBo img{
+	width: 100%;
+	height: 100%;
+}
+.box .bListBox{
+	padding: 15px;
+}
+.box .bListBox .list{
+	float: left;
+	width: 48%;
+	margin-bottom: 10px;
+}
+.box .bListBox .list .topImg{
+	width: 100%;
+	height: 100px;
+	position: relative;
+}
+.box .bListBox .list .topImg .gy{
+	position: absolute;
+	right: 0px;
+	bottom: 10px;
+	width: 40px;
+	height: 20px;
+	background: rgba(183, 35, 35, 0.55);
+	border-radius: 10px 0px 0px 10px;
+	color: #f0f0f0;
 	text-align: center;
-	margin: 0 auto 0.2rem;
+	font-size: 13px;
+	line-height: 20px;
 }
-
-.product-list .product-item div {
-	padding: 0 0.2rem;
+.box .bListBox .list .topImg img{
+	border-radius: 6px;
+	width: 100%;
+	height: 100%;
 }
-
-.product-list .product-item .name {
-	font-weight: bold;
-	font-size: 0.32rem;
-	color: #333;
+.box .bListBox .list .cTitle{
+	line-height: 30px;
+	font-size: 15px;
+	font-weight: 500;
+	color: #8c8c8c;
 }
-
-.product-list .product-item .price {
-	font-weight: bold;
-	padding-bottom: 0.15rem;
+.box .bListBox .list .bTitle{
+	color: #bcbcbc;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 15px;
+}
+.box .bListBox .leftMoney{
+	line-height: 30px;
+	width:90px;
+}
+.box .bListBox .leftMoney .yMoney{
+	font-size: 16px;
+	font-weight: 600;
+	color: #c6413b;
+}
+.box .bListBox .leftMoney .nMoney{
+	font-size: 12px;
+	font-weight: 200;
+	color:#bcbcbc;
+}
+.box .bListBox .leftMoney .nMoney .bSpan{
+	margin-left: -4px;
+	text-decoration:line-through
+}
+.box .bListBox .rightBY{
+	line-height: 30px;
+}
+.box .bListBox .rightBY span{
+	border-radius: 3px;
+	border: 1px solid #c6413b;
+	color: #c6413b;
+	padding: 0px 2px;
+	font-size: 12px;
+}
+.thb{
+	margin-top: 15px;
+	width: 100%;
+	height: 200px;
+}
+.thb img{
+	width: 100%;
+	height:100%;
+}
+.s-t{
+	display: flex;
+	justify-content: space-between;
 }

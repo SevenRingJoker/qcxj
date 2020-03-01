@@ -6,7 +6,7 @@ var vm = new Vue({
 	},
 	methods:{
 		href:function(id){
-			openWindow('../memberDetails/memberDetails.html?id='+id)
+			openWindow('../memberDetails/memberNoeDetails.html?id='+id)
 		}
 	}
 })

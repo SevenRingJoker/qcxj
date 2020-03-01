@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商品详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconFont/iconFont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/image.css" />
+		<link rel="stylesheet" href="../../css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/memberNoeDetails.css" />
+	</head>
+
+	<body>
+		<div id="memberNoeDetails">
+<!--			头部-->
+			<div class="topHead s-t">
+				<div class="left s-t">
+					<img  src="../../img/quxiao.png" onclick="goback()">
+					<span>酒友注册详情</span>
+				</div>
+				<div class="right">
+					<span>...</span>
+				</div>
+			</div>
+<!--			主体内容-->
+			<div class="box">
+<!--				乱播图-->
+				<div class="mui-slider" id="slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#"><img :src="fileUrl+headFilePathArrays[headFilePathArrays.length-1]" /></a>
+						</div>
+						<div class="mui-slider-item" v-for="(pic, i) in headFilePathArrays" :key="i">
+							<a href="#"><img :src="fileUrl + pic" data-preview-src="" data-preview-group="1" /></a>
+						</div>
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#"><img :src="fileUrl+headFilePathArrays[0]" /></a>
+						</div>
+					</div>
+					<div class="sliderBanner"><div class="banner-count"><span id="info">1</span>/{{headFilePathArrays.length}}</div></div>
+				</div>
+<!--				详情内容-->
+				<div class="bContent">
+					<div class="topC">
+						啊发射点发顺丰
+					</div>
+					<div class="bottomC s-t">
+						<div>$23423</div>
+						<div>$23423</div>
+						<div>$23423</div>
+					</div>
+				</div>
+<!--				底部-->
+				<div>
+
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/plugin/vue.min.js"></script>
+		<script src="../../js/plugin/jquery2.1.min.js"></script>
+		<script src="../../js/zoom.js"></script>
+		<script src="../../js/previewimage.js"></script>
+		<script src="../../js/common/commonFn.js"></script>
+		<script src="../../js/textarea-sjx.js"></script>
+		<script src="../../js/plugin/loading.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/memberNoeDetails.js"></script>
+	</body>
+
+</html>

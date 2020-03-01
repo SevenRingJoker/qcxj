@@ -9,20 +9,54 @@
 		<link rel="stylesheet" type="text/css" href="../../css/common/g_common.css" />
 		<link rel="stylesheet" type="text/css" href="css/memberList.css" />
 	</head>
-
 	<body>
-		<div id="member-List">
-			<!-- <div class="mui-bar">
-				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-				<h1 class="mui-title">会员列表</h1>
-			</div> -->
-			<img class="headImage" src="img/memberList.jpg" />
-			<div class="product-list">
-				<div class="product-item" v-for="member in memberList" v-if="memberList.length>0" @click="href(member.id)">
-					<img :src="fileUrl + member.homeFilePath" alt="" />
-					<div class="name mui-ellipsis" v-text="member.name"></div>
-					<div class="color-red price">￥<span v-text="member.joinMoney"></span></div>
+		<div id="memberList">
+<!--			头部-->
+			<div class="topHead s-t">
+				<div class="left s-t">
+					<img  src="../../img/quxiao.png" onclick="goback()">
+					<span>酒友注册</span>
 				</div>
+				<div class="right">
+					<span>...</span>
+				</div>
+			</div>
+<!--			主体-->
+			<div class="box">
+				<div class="lunBo">
+					<img src="img/memberList.jpg">
+				</div>
+				<div class="bListBox">
+					<div class="list" v-for="(item,index) in 10" :key="index" :style="index%2!=0?'':'margin-right: 4%'" @click="goDetails(index)">
+						<div class="topImg">
+							<img src="img/memberList.jpg">
+							<div class="gy" v-if="0==0">
+								购买
+							</div>
+						</div>
+						<div class="cTitle">阿斯顿发顺丰</div>
+						<div class="bTitle">
+							阿斯蒂芬撒的撒发射点发撒法沙发沙发发生
+						</div>
+						<div class="bBox s-t">
+							<div class="leftMoney s-t">
+								<div class="yMoney">
+									￥1000
+								</div>
+								<div class="nMoney">
+									<span>￥</span><span class="bSpan">1000</span>
+								</div>
+							</div>
+							<div class="rightBY">
+								<span>包邮</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+<!--			底部-->
+			<div class="thb">
+				<img src="img/memberList.jpg">
 			</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
